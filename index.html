@@ -1378,6 +1378,72 @@ iframe { max-width: 100%; }
   .footer-tagline { display: none; }
 }
 
+
+/* ─── ABOUT SECTION REFRESH ─────────────── */
+.about-background-line {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; font-weight: 500;
+  color: var(--gray-400); letter-spacing: 0.04em;
+  text-transform: uppercase; margin-bottom: 32px;
+}
+
+/* Why I Build card */
+.why-i-build-card {
+  margin-top: 28px;
+  padding: 20px 22px;
+  background: var(--black);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.why-i-build-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 600;
+  color: var(--red); text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 10px;
+}
+.why-i-build-text {
+  font-size: 14px; color: rgba(255,255,255,0.65);
+  line-height: 1.8; letter-spacing: -0.005em;
+}
+
+/* Journey timeline */
+.journey-timeline {
+  display: flex; flex-direction: column; gap: 0;
+  padding-top: 8px;
+}
+.journey-step {
+  padding: 14px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  transition: background 0.15s;
+}
+.journey-step:hover { background: var(--gray-50); }
+.journey-step-key {
+  border-color: var(--gray-300);
+  background: var(--gray-50);
+}
+.journey-step-final {
+  border-color: rgba(217,35,28,0.2);
+  background: #FFF8F8;
+}
+.journey-title {
+  font-size: 13px; font-weight: 600;
+  color: var(--black); letter-spacing: -0.02em;
+  margin-bottom: 3px;
+}
+.journey-step-final .journey-title { color: var(--red); }
+.journey-sub {
+  font-size: 11px; color: var(--gray-400);
+  font-family: "JetBrains Mono", monospace;
+  line-height: 1.5;
+}
+.journey-arrow {
+  text-align: center;
+  font-size: 14px; color: var(--gray-300);
+  padding: 4px 0; line-height: 1;
+}
+
 </style>
 </head>
 <body>
@@ -1456,39 +1522,54 @@ iframe { max-width: 100%; }
 
 <div class="section-spacer" id="about">
   <div class="container">
+
+    <!-- Background statement -->
+    <p class="about-background-line">5+ years in sales and marketing before transitioning into software engineering and AI.</p>
+
     <div class="about-layout">
+      <!-- LEFT: Story -->
       <div>
         <span class="eyebrow">About</span>
         <h2 class="section-heading">Builder first.<br>Engineer second.</h2>
         <div class="about-body">
-          <p>I build products, not prototypes. I build production-grade AI systems, automation platforms, and software products that solve real business problems. My background in Physics and Computer Science taught me how to think in systems. Today, I apply that thinking to AI, automation, and product development.</p>
-          <p>Most developers stop at code. I focus on outcomes: taking an idea from a blank page to a deployed system that people can actually use.</p>
-          <p>My work is guided by one principle:</p>
-          <p class="about-pullquote">"software should run itself."</p>
-          <p>Every project in this portfolio started as an idea and ended as a real system operating in production, designed to create value long after it's deployed.</p>
+          <p>Before moving into software engineering, I spent over five years in sales and marketing. I worked in customer acquisition, led outreach campaigns, trained teams, and spent a lot of time understanding how businesses grow and why customers make decisions. That experience gave me a practical understanding of operations, execution, and the importance of systems.</p>
+          <p>Over time, I kept running into the same problems. Teams were spending hours on repetitive work, outreach didn't scale, and important processes depended too heavily on manual effort. I became interested in automation because I had experienced these problems firsthand.</p>
+          <p>That background shapes the way I build products today. LeadFlow came from understanding cold outreach from the inside. SchoonMaak came from seeing small businesses lose opportunities because they couldn't respond quickly enough. I don't build technology for its own sake. I build systems that solve problems I've either experienced myself or observed closely.</p>
+        </div>
+
+        <!-- Why I Build card -->
+        <div class="why-i-build-card">
+          <div class="why-i-build-label">Why I Build</div>
+          <p class="why-i-build-text">I spent five years working in sales and marketing before moving into engineering. That experience taught me how businesses operate and exposed me to repetitive problems that could be solved with better systems. Most of the products in this portfolio started as attempts to solve challenges I encountered firsthand.</p>
         </div>
       </div>
+
+      <!-- RIGHT: Journey timeline -->
       <div>
-        <div class="about-pillars">
-          <div class="pillar">
-            <span class="pillar-num">01</span>
-            <span class="pillar-title">AI & LLM Systems</span>
-            <span class="pillar-desc">Multi-model pipelines, prompt engineering, autonomous agents</span>
+        <div class="journey-timeline">
+          <div class="journey-step">
+            <div class="journey-title">Sales &amp; Marketing</div>
+            <div class="journey-sub">5+ years · Customer acquisition · Team leadership</div>
           </div>
-          <div class="pillar">
-            <span class="pillar-num">02</span>
-            <span class="pillar-title">Full-Stack Development</span>
-            <span class="pillar-desc">Node.js, Python, React, PostgreSQL (end to end)</span>
+          <div class="journey-arrow">↓</div>
+          <div class="journey-step">
+            <div class="journey-title">Business Operations</div>
+            <div class="journey-sub">Outreach systems · Campaigns · Growth processes</div>
           </div>
-          <div class="pillar">
-            <span class="pillar-num">03</span>
-            <span class="pillar-title">Production Deployment</span>
-            <span class="pillar-desc">Railway, Vercel, real APIs, real users, real results</span>
+          <div class="journey-arrow">↓</div>
+          <div class="journey-step journey-step-key">
+            <div class="journey-title">Recognised Repeated Problems</div>
+            <div class="journey-sub">Manual work · Bottlenecks · Processes that didn't scale</div>
           </div>
-          <div class="pillar">
-            <span class="pillar-num">04</span>
-            <span class="pillar-title">Business Automation</span>
-            <span class="pillar-desc">Self-running pipelines, approval flows, multi-channel outreach</span>
+          <div class="journey-arrow">↓</div>
+          <div class="journey-step">
+            <div class="journey-title">Started Building</div>
+            <div class="journey-sub">Automation systems · AI tools · Production software</div>
+          </div>
+          <div class="journey-arrow">↓</div>
+          <div class="journey-step journey-step-final">
+            <div class="journey-title">AI Engineer &amp; Product Builder</div>
+            <div class="journey-sub">Building products from idea to deployment</div>
           </div>
         </div>
       </div>
