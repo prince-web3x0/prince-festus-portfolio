@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeadFlow NL | Prince Festus</title>
+  <meta name="description" content="AI-powered prospecting and personalised cold outreach platform for Dutch businesses. Built by Prince Festus.">
+  <link rel="canonical" href="https://princefestus.com/leadflow.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="LeadFlow NL | Prince Festus">
+  <meta property="og:description" content="AI-powered prospecting and personalised cold outreach platform for Dutch businesses.">
+  <meta property="og:url" content="https://princefestus.com/leadflow.html">
+  <meta property="og:image" content="https://princefestus.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LeadFlow NL | Prince Festus">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LeadFlow NL | Prince Festus">
+  <meta name="twitter:description" content="AI-powered prospecting and personalised cold outreach platform for Dutch businesses.">
+  <meta name="twitter:image" content="https://princefestus.com/og-image.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#000000">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #090909;
+  --white: #ffffff;
+  --red: #D9231C;
+  --red-hover: #B51C16;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --border: rgba(0,0,0,0.08);
+  --border-strong: rgba(0,0,0,0.12);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 56px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-size: 15px; font-weight: 600; letter-spacing: -0.025em; color: var(--black); text-decoration: none; }
+.nav-logo span { color: var(--red); }
+.back-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 500; color: var(--gray-500);
+  text-decoration: none; letter-spacing: -0.01em;
+  padding: 6px 12px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  transition: all 0.15s;
+}
+.back-btn:hover { color: var(--black); border-color: var(--gray-300); background: var(--gray-50); }
+
+/* PAGE */
+.page { padding-top: 56px; }
+.container { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+
+/* HERO BAND */
+.cs-hero {
+  background: var(--black);
+  padding: 64px 2rem 56px;
+  border-bottom: 1px solid rgba(217,35,28,0.2);
+  box-shadow: 0 4px 40px rgba(217,35,28,0.06);
+}
+.cs-hero-inner { max-width: 820px; margin: 0 auto; }
+
+.cs-meta-top {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 28px;
+}
+.cs-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+  color: rgba(255,255,255,0.4); letter-spacing: 0.05em; text-transform: uppercase;
+}
+.cs-tag-sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+.cs-status {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+  color: #4ADE80;
+}
+.cs-status::before { content:''; width:5px; height:5px; border-radius:50%; background:#4ADE80; animation: blink 2.5s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+.cs-title {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800; letter-spacing: -0.05em;
+  color: var(--white); line-height: 1.05; margin-bottom: 16px;
+  text-shadow: 0 0 60px rgba(217,35,28,0.15);
+}
+.cs-tagline {
+  font-size: 17px; color: rgba(255,255,255,0.55);
+  line-height: 1.8; max-width: 600px; letter-spacing: -0.01em;
+  margin-bottom: 40px;
+}
+
+.cs-meta-row {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  row-gap: 0;
+}
+.cs-meta-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.cs-meta-row .cs-meta-item:nth-child(n+5) {
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.cs-meta-item {
+  display: flex; flex-direction: column; gap: 4px;
+  padding-right: 32px;
+  border-right: none;
+}
+.cs-meta-item:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+.cs-meta-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 5px;
+}
+.cs-meta-val { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.85); letter-spacing: -0.01em; }
+
+/* CONTENT */
+.cs-body { padding: 56px 0 80px; }
+
+/* SECTION */
+.cs-section { margin-bottom: 52px; }
+.cs-section-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600;
+  color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.1em;
+  margin-bottom: 8px; display: block;
+}
+.cs-section-title {
+  font-size: 1.4rem; font-weight: 800;
+  color: var(--black); letter-spacing: -0.03em;
+  line-height: 1.2; margin-bottom: 20px;
+  padding-bottom: 14px; border-bottom: 1px solid var(--border);
+}
+.cs-section-body {
+  font-size: 15px; color: var(--gray-600); line-height: 1.85; letter-spacing: -0.005em;
+}
+.cs-section-body strong { color: var(--black); font-weight: 600; }
+.cs-section-body p + p { margin-top: 16px; }
+
+/* SCREENSHOTS */
+.ss-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ss-frame {
+  border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--border-strong);
+  background: var(--gray-50);
+}
+.ss-frame img { width: 100%; display: block; object-fit: cover; object-position: top; height: 190px; }
+.ss-caption {
+  padding: 10px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--gray-500);
+  line-height: 1.6;
+  border-top: 1px solid var(--border);
+  background: var(--white);
+  letter-spacing: -0.005em;
+}
+
+/* ARCH STEPS */
+.arch-steps { display: flex; flex-direction: column; border: 1px solid var(--border-strong); border-radius: var(--radius-lg); overflow: hidden; }
+.arch-step {
+  display: grid; grid-template-columns: 52px 1fr; gap: 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.arch-step:last-child { border-bottom: none; }
+.arch-step:hover { background: var(--gray-50); }
+.arch-step-num {
+  display: flex; align-items: flex-start; justify-content: center;
+  padding-top: 18px; padding-bottom: 18px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+  color: var(--gray-300); border-right: 1px solid var(--border);
+}
+.arch-step-content { padding: 18px 20px; }
+.arch-step-title { font-size: 14px; font-weight: 600; color: var(--black); letter-spacing: -0.02em; margin-bottom: 5px; }
+.arch-step-desc { font-size: 13px; color: var(--gray-500); line-height: 1.65; letter-spacing: -0.005em; }
+.arch-step-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
+.arch-mini-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  padding: 2px 8px; border-radius: 4px;
+  background: var(--gray-100); color: var(--gray-500);
+  border: 1px solid var(--gray-200);
+}
+
+/* CHALLENGES */
+.challenge-list { display: flex; flex-direction: column; }
+.challenge {
+  display: grid; grid-template-columns: 44px 1fr;
+  padding: 22px 0; border-bottom: 1px solid var(--border);
+  gap: 0;
+}
+.challenge:last-child { border-bottom: none; }
+.challenge-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+  color: var(--gray-300); padding-top: 2px;
+}
+.challenge-body {}
+.challenge-title { font-size: 15px; font-weight: 700; color: var(--black); letter-spacing: -0.02em; margin-bottom: 7px; padding-left: 12px; border-left: 3px solid var(--red); }
+.challenge-desc { font-size: 14px; color: var(--gray-500); line-height: 1.75; letter-spacing: -0.005em; }
+
+/* RESULTS */
+.results-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
+.result-tile {
+  padding: 20px 18px; border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong); background: var(--white);
+}
+.result-tile.dark { background: var(--black); border-color: var(--black); }
+.result-tile.red { background: var(--red); border-color: var(--red); }
+.result-big {
+  font-size: 2.4rem; font-weight: 700; letter-spacing: -0.05em;
+  color: var(--black); line-height: 1; margin-bottom: 6px;
+}
+.result-tile.dark .result-big,
+.result-tile.red .result-big { color: var(--white); }
+.result-small { font-size: 12px; color: var(--gray-400); line-height: 1.4; font-weight: 400; }
+.result-tile.dark .result-small { color: rgba(255,255,255,0.4); }
+.result-tile.red .result-small { color: rgba(255,255,255,0.65); }
+.result-footnote { font-size: 13px; color: var(--gray-400); font-style: italic; letter-spacing: -0.005em; }
+
+/* STACK */
+.stack-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.stack-chip {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  padding: 6px 12px; border-radius: var(--radius-sm);
+  background: var(--gray-50); color: var(--gray-600);
+  border: 1px solid var(--gray-200);
+}
+
+/* LOOM */
+.loom-placeholder {
+  border: 1px dashed var(--gray-200); border-radius: var(--radius-lg);
+  padding: 56px 32px;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px;
+  background: var(--gray-50);
+}
+.loom-icon { font-size: 28px; margin-bottom: 4px; opacity: 0.4; }
+.loom-label { font-size: 14px; font-weight: 500; color: var(--gray-500); letter-spacing: -0.01em; }
+.loom-sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gray-300); }
+
+/* CS FOOTER */
+.cs-footer {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  padding-top: 40px; border-top: 1px solid var(--border); margin-top: 12px;
+}
+.btn-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 11px 20px; background: transparent; color: var(--gray-600);
+  font-size: 14px; font-weight: 500; letter-spacing: -0.01em;
+  border-radius: var(--radius-sm); text-decoration: none;
+  border: 1px solid var(--border-strong);
+  transition: all 0.15s;
+}
+.btn-back:hover { border-color: var(--gray-300); color: var(--black); background: var(--gray-50); }
+.btn-cta {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 11px 22px; background: var(--black); color: var(--white);
+  font-size: 14px; font-weight: 500; letter-spacing: -0.01em;
+  border-radius: var(--radius-sm); text-decoration: none;
+  border: 1px solid transparent; transition: opacity 0.15s;
+}
+.btn-cta:hover { opacity: 0.85; }
+
+@media (max-width: 640px) {
+  .cs-hero { padding: 48px 1.5rem 40px; }
+  .cs-meta-row { gap: 16px; }
+  .cs-meta-item { border-right: none; padding-right: 0; margin-right: 0; }
+  .ss-2col { grid-template-columns: 1fr; }
+  .results-row { grid-template-columns: 1fr 1fr; }
+  .arch-step { grid-template-columns: 40px 1fr; }
+}
+
+.ss-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+/* ─── SCREENSHOT SECTION POLISH ─────────── */
+.lead-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600; color: var(--black);
+  background: var(--gray-50);
+  border: 1px solid var(--border-strong);
+  border-radius: 100px;
+  padding: 4px 12px 4px 4px;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.lead-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px;
+  background: var(--black); color: var(--white);
+  border-radius: 50%;
+  font-size: 10px; font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+.ss-2col, .ss-3col { margin-bottom: 28px; }
+.cs-section { padding-top: 8px; }
+
+/* ─── SECTION TITLE HEADING ─────────────── */
+.cs-section { margin-bottom: 56px; }
+
+/* ─── CALLOUT BOX ────────────────────────── */
+.cs-callout {
+  background: var(--black);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 16px;
+}
+.cs-callout-text {
+  font-size: 15px; font-weight: 600;
+  color: var(--white); letter-spacing: -0.02em;
+}
+
+/* ─── STACK CATEGORIES ───────────────────── */
+.stack-categories { display: flex; flex-direction: column; gap: 20px; }
+.stack-cat-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 600;
+  color: var(--gray-400); text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 8px;
+}
+.stack-chip-ai {
+  background: #FFF5F5 !important;
+  color: var(--red) !important;
+  border-color: rgba(217,35,28,0.2) !important;
+}
+
+/* ─── RESULT CONTEXT ─────────────────────── */
+.result-context {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: var(--gray-50);
+  border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--red);
+  border-radius: var(--radius-md);
+  font-size: 14px; color: var(--gray-600);
+  letter-spacing: -0.005em; line-height: 1.6;
+}
+.result-context-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 600;
+  color: var(--gray-400); text-transform: uppercase;
+  letter-spacing: 0.08em; margin-right: 6px;
+}
+.result-context strong { color: var(--red); font-weight: 700; }
+
+/* ─── CLOSING SECTION ────────────────────── */
+.cs-closing {
+  background: var(--black);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  display: flex; flex-direction: column; gap: 14px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(217,35,28,0.15);
+  animation: closing-glow 3s ease-in-out infinite;
+}
+@keyframes closing-glow {
+  0%,100% { box-shadow: 0 0 0px rgba(217,35,28,0); border-color: rgba(217,35,28,0.15); }
+  50%      { box-shadow: 0 0 24px 4px rgba(217,35,28,0.2); border-color: rgba(217,35,28,0.5); }
+}
+.cs-closing::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--red) 40%, #ff6b6b 50%, var(--red) 60%, transparent);
+  background-size: 300% 100%;
+  animation: closing-line 4s linear infinite;
+}
+@keyframes closing-line {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 300% 0%; }
+}
+.cs-closing p {
+  font-size: 15px; color: rgba(255,255,255,0.7);
+  line-height: 1.85; letter-spacing: -0.005em;
+}
+.cs-closing p:first-child {
+  color: rgba(255,255,255,0.85);
+}
+.cs-closing p:last-child {
+  font-size: 16px; font-weight: 600;
+  color: var(--white); letter-spacing: -0.02em;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 14px; margin-top: 4px;
+}
+
+/* ─── CASE STUDY HERO LOGO LEFT ─────────── */
+.cs-hero-layout {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+.cs-hero-logo-left {
+  padding-top: 4px;
+}
+.cs-hero-logo-left img {
+  width: 100px; height: 100px;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  mix-blend-mode: lighten;
+  filter: brightness(1) saturate(0.85);
+}
+.cs-hero-content { flex: 1; }
+@media (max-width: 640px) {
+  .cs-hero-layout { grid-template-columns: 1fr; }
+  .cs-hero-logo-left img { width: 64px; height: 64px; }
+}
+
+.nav-btn {
+  font-size: 13px; font-weight: 500; padding: 7px 16px;
+  background: var(--black); color: var(--white);
+  border-radius: var(--radius-sm); text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: background 0.15s, opacity 0.15s;
+  border: 1px solid transparent;
+}
+.nav-btn:hover { opacity: 0.85; }
+
+/* ─── ARCHITECTURE DIAGRAM ───────────────── */
+.arch-diagram {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0; width: 100%;
+}
+.arch-arrow-down {
+  font-size: 16px; color: var(--gray-300);
+  line-height: 1; padding: 6px 0; text-align: center;
+}
+
+/* Source boxes row */
+.arch-row { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; }
+.arch-sources { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.arch-source-box {
+  padding: 6px 14px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong); background: var(--gray-50);
+  font-size: 12px; font-weight: 500; color: var(--gray-600);
+  font-family: "JetBrains Mono", monospace;
+}
+.arch-sources-label {
+  font-size: 10px; color: var(--gray-400); text-transform: uppercase;
+  letter-spacing: 0.08em; font-family: "JetBrains Mono", monospace;
+}
+
+/* Main nodes */
+.arch-node {
+  width: 100%; max-width: 380px;
+  padding: 14px 18px; border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+  background: var(--white); text-align: center;
+}
+.arch-node-title {
+  font-size: 14px; font-weight: 600; color: var(--black);
+  letter-spacing: -0.02em; margin-bottom: 4px;
+}
+.arch-node-tag {
+  font-size: 11px; color: var(--gray-400);
+  font-family: "JetBrains Mono", monospace;
+}
+.arch-node-primary { border-color: var(--gray-200); background: var(--gray-50); }
+.arch-node-db { border-color: var(--gray-300); background: var(--gray-100); }
+.arch-node-approval {
+  border-color: rgba(217,35,28,0.25); background: #FFF8F8;
+}
+.arch-node-approval .arch-node-title { color: var(--red); }
+.arch-node-sm {
+  max-width: 160px; padding: 10px 14px;
+  border-color: var(--gray-200); background: var(--gray-50);
+}
+.arch-node-sm .arch-node-title { font-size: 12px; margin-bottom: 0; }
+
+/* Research block */
+.arch-research-block {
+  width: 100%; max-width: 380px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md); overflow: hidden;
+}
+.arch-research-title {
+  background: var(--black); color: var(--white);
+  font-size: 13px; font-weight: 600;
+  padding: 10px 16px; letter-spacing: -0.02em;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.arch-research-parallel {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; color: rgba(255,255,255,0.4);
+  font-weight: 400; letter-spacing: 0.04em;
+}
+.arch-research-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.arch-research-item {
+  padding: 8px 14px; font-size: 12px; color: var(--gray-500);
+  border-bottom: 1px solid var(--border); border-right: 1px solid var(--border);
+  font-family: "JetBrains Mono", monospace;
+}
+.arch-research-item:nth-child(even) { border-right: none; }
+.arch-research-item:nth-last-child(-n+2) { border-bottom: none; }
+.arch-research-item-accent { color: var(--red); }
+
+/* AI row */
+.arch-ai-row {
+  display: flex; align-items: center; gap: 8px; justify-content: center; width: 100%;
+}
+.arch-ai-row .arch-node { max-width: 170px; }
+.arch-ai-arrow { font-size: 14px; color: var(--gray-300); flex-shrink: 0; }
+.arch-node-ai {
+  border-color: rgba(217,35,28,0.15);
+  background: #FFF8F8;
+}
+.arch-node-ai .arch-node-title { color: var(--red); }
+
+/* Bottom row */
+.arch-bottom-row {
+  display: flex; align-items: center; gap: 8px; justify-content: center; width: 100%;
+}
+.arch-bottom-arrow { font-size: 14px; color: var(--gray-300); flex-shrink: 0; }
+
+@media(max-width:640px){
+  .arch-ai-row { flex-direction: column; }
+  .arch-ai-arrow { transform: rotate(90deg); }
+  .arch-bottom-row { flex-direction: column; }
+  .arch-bottom-arrow { transform: rotate(90deg); }
+  .arch-node-sm { max-width: 100%; }
+}
+
+
+
+
+
+
+
+
+@media(max-width:640px){   }
+
+ .brand-pf { font-size: 11px; } }
+/* ─── NAVBAR BRAND ───────────────────────── */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  background: #000000;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+.brand-pf {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  display: block;
+}
+.brand-accent {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #E11D1D;
+}
+.brand-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+}
+.brand-period { color: #D9231C; }
+@media(max-width:640px) {
+  .brand-logo { width: 28px; height: 28px; }
+  .brand-pf { font-size: 11px; }
+  .brand-name { font-size: 13px; }
+}
+
+/* ─── NAVBAR BRAND ───────────────────────── */
+.brand { display: inline-flex; align-items: center; gap: 10px; flex-wrap: nowrap; text-decoration: none; flex-shrink: 0; }
+.brand-logo { width: 32px; height: 32px; background: #000000; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; position: relative; flex-shrink: 0; }
+.brand-pf { font-family: "Inter", sans-serif; font-size: 13px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; line-height: 1; }
+.brand-accent { position: absolute; bottom: 5px; right: 5px; width: 4px; height: 4px; border-radius: 50%; background: #E11D1D; }
+.brand-name { font-family: "Inter", sans-serif; font-size: 15px; font-weight: 700; color: #111111; letter-spacing: -0.025em; line-height: 1; white-space: nowrap; display: inline-block; }
+.brand-period { color: #D9231C; }
+@media(max-width:640px){ .brand-logo { width: 28px; height: 28px; } .brand-pf { font-size: 11px; } .brand-name { font-size: 13px; } }
+
+
+/* ══════════════════════════════════════════
+   MOBILE RESPONSIVENESS — CASE STUDY
+   ══════════════════════════════════════════ */
+
+img { max-width: 100%; height: auto; }
+iframe { max-width: 100%; }
+
+@media (max-width: 768px) {
+  .cs-hero { padding: 48px 1.5rem 40px; }
+  .cs-hero-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .cs-hero-logo-left img { width: 72px; height: 72px; }
+  .cs-meta-row { grid-template-columns: 1fr 1fr; }
+  .cs-title { font-size: clamp(2rem, 8vw, 3rem); }
+  .results-row { grid-template-columns: 1fr 1fr; }
+  .arch-ai-row { flex-direction: column; }
+  .arch-ai-arrow { transform: rotate(90deg); }
+  .arch-bottom-row { flex-direction: column; }
+  .arch-bottom-arrow { transform: rotate(90deg); }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 1.25rem; }
+  nav { padding: 0 1.25rem; }
+  .brand-name { display: none; }
+
+  /* Hero */
+  .cs-hero { padding: 40px 1.25rem 32px; }
+  .cs-meta-row { grid-template-columns: 1fr 1fr; gap: 0; }
+  .cs-meta-item { padding-right: 12px; padding-top: 14px; padding-bottom: 14px; }
+  .cs-meta-val { font-size: 13px; }
+  .cs-tagline { font-size: 15px; }
+
+  /* Body */
+  .cs-body { padding: 40px 0 60px; }
+  .cs-section { margin-bottom: 40px; }
+  .cs-section-title { font-size: 1.2rem; }
+
+  /* Results */
+  .results-row { grid-template-columns: 1fr; gap: 10px; }
+
+  /* Screenshots */
+  .ss-2col, .ss-3col { grid-template-columns: 1fr; }
+
+  /* Architecture */
+  .arch-sources { flex-direction: column; align-items: center; }
+  .arch-node { max-width: 100%; min-width: unset; }
+  .arch-node-wide { max-width: 100%; }
+  .arch-three-col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .arch-research-grid { grid-template-columns: 1fr; }
+  .arch-research-item { border-right: none !important; }
+
+  /* Flow steps */
+  .flow-steps { overflow: hidden; }
+  .flow-step { padding: 12px 14px; }
+
+  /* Challenges */
+  .challenge { grid-template-columns: 36px 1fr; }
+
+  /* Stack */
+  .stack-grid { gap: 6px; }
+  .stack-chip { font-size: 11px; padding: 5px 10px; }
+
+  /* Closing */
+  .cs-closing { padding: 1.5rem; }
+  .cs-footer { flex-direction: column; gap: 8px; }
+  .btn-back, .btn-cta { width: 100%; justify-content: center; }
+
+  /* Demo checklist */
+  .demo-checklist { grid-template-columns: 1fr; }
+  .loom-embed, .demo-video-wrap, .bs-loom-embed, .loom-embed { 
+    border-radius: 10px; 
+  }
+}
+
+@media (max-width: 375px) {
+  .container { padding: 0 1rem; }
+  nav { padding: 0 1rem; }
+  .cs-meta-row { grid-template-columns: 1fr; }
+  .cs-hero { padding: 36px 1rem 28px; }
+}
+
+
+@media(max-width:640px){
+  .ss-2col { grid-template-columns: 1fr; }
+  .ss-3col { grid-template-columns: 1fr; }
+  .lead-badge { font-size: 11px; }
+  .result-context { font-size: 12px; }
+  .arch-steps { border-radius: 8px; }
+  .arch-step { grid-template-columns: 40px 1fr; }
+  .arch-step-num { font-size: 10px; }
+}
+
+
+@media(max-width:360px){
+  nav { padding: 0 0.875rem; }
+  .container { padding: 0 0.875rem; }
+  .cs-hero { padding: 32px 0.875rem 24px; }
+  .cs-title { font-size: clamp(1.8rem, 10vw, 2.4rem); }
+  .cs-meta-row { grid-template-columns: 1fr; }
+  .cs-meta-item { padding-top: 10px; padding-bottom: 10px; }
+  .arch-node { padding: 10px 12px; }
+  .arch-step-num { padding-top: 14px; }
+  .results-row { grid-template-columns: 1fr; }
+  .result-big { font-size: 1.8rem; }
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">
+    <span class="brand-logo">
+      <span class="brand-pf">PF</span>
+      <span class="brand-accent"></span>
+    </span>
+    <span class="brand-name">Prince Festus<span class="brand-period">.</span></span>
+  </a>
+  <a href="index.html" class="back-btn">
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M10.5 6.5h-8M6 3L2.5 6.5 6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    All projects
+  </a>
+  <a href="index.html#contact" class="nav-btn">Get in touch</a>
+</nav>
+
+<div class="page">
+
+  <!-- HERO BAND -->
+  <div class="cs-hero">
+    <div class="cs-hero-inner">
+      <div class="cs-hero-layout">
+        <div class="cs-hero-logo-left">
+          <img src="leadflow-logo.png" alt="LeadFlow NL">
+        </div>
+        <div class="cs-hero-content">
+      <div class="cs-meta-top">
+        <span class="cs-tag">AI Automation</span>
+        <span class="cs-tag-sep">·</span>
+        <span class="cs-tag">B2B Outreach</span>
+        <span class="cs-tag-sep">·</span>
+        <span class="cs-status">Production</span>
+      </div>
+      <h1 class="cs-title">LeadFlow NL</h1>
+      <p class="cs-tagline">An AI-powered prospecting and outreach platform designed to identify qualified businesses and generate highly personalised cold emails at scale.</p>
+      <div class="cs-meta-row">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Timeline</span>
+          <span class="cs-meta-val">May 29 – Jun 3, 2026</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Category</span>
+          <span class="cs-meta-val">AI Automation</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Type</span>
+          <span class="cs-meta-val">Independent Project</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Stack</span>
+          <span class="cs-meta-val">Node.js · Python · PostgreSQL</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Deployment</span>
+          <span class="cs-meta-val">Railway</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Users</span>
+          <span class="cs-meta-val">Internal</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Region</span>
+          <span class="cs-meta-val">Netherlands</span>
+        </div>
+      </div>
+        </div><!-- end cs-hero-content -->
+      </div><!-- end cs-hero-layout -->
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="cs-body">
+  <div class="container">
+
+    <!-- 1. OVERVIEW -->
+    <div class="cs-section">
+      <span class="cs-section-label">Overview</span>
+      <h2 class="cs-section-title">What LeadFlow does.</h2>
+      <div class="cs-section-body">
+        <p>In 5 days, I built a system that finds Dutch cleaning companies, researches each one individually, and sends their owner a cold email that reads like it was written by someone who actually looked at their business. It follows up, tracks replies, and reports daily. Research, drafting, scheduling, and follow-up are automated. Human involvement is limited to final approval before emails are sent.</p>
+        <p>The emails follow strict rules: <strong>maximum 6 lines, one genuine observation, one question, no pitch, no mention of services.</strong> The goal is to start a real conversation, not close a sale in the first message.</p>
+      </div>
+    </div>
+
+    <!-- 2. THE PROBLEM -->
+    <div class="cs-section">
+      <span class="cs-section-label">The problem</span>
+      <h2 class="cs-section-title">Why generic outreach fails.</h2>
+      <div class="cs-section-body">
+<p>Most cold outreach is either manual and slow or automated and generic. LeadFlow was built to automate personalisation without sacrificing quality.</p>
+      </div>
+    </div>
+
+    <!-- 3. WHY I BUILT IT -->
+    <div class="cs-section">
+      <span class="cs-section-label">Why I built it</span>
+      <h2 class="cs-section-title">From manual to automated.</h2>
+      <div class="cs-section-body">
+<p>I was manually researching companies, writing outreach emails, and tracking replies. The process worked but didn't scale. LeadFlow was built to automate research, drafting, and follow-up while keeping a human approval step for quality control.</p>
+      </div>
+    </div>
+
+    <!-- 4. OUTCOMES -->
+    <div class="cs-section">
+      <span class="cs-section-label">Outcomes</span>
+      <h2 class="cs-section-title">Early results.</h2>
+      <div class="results-row">
+        <div class="result-tile red">
+          <div class="result-big">9</div>
+          <div class="result-small">Emails sent in testing phase</div>
+        </div>
+        <div class="result-tile dark">
+          <div class="result-big">2</div>
+          <div class="result-small">Positive replies from business owners</div>
+        </div>
+        <div class="result-tile">
+          <div class="result-big">22%</div>
+          <div class="result-small">Initial reply rate — 2 replies from 9 test emails</div>
+        </div>
+      </div>
+      <p class="result-footnote">2 replies from 9 emails sent in initial testing (22% reply rate). Sample size is intentionally small. Larger-scale testing is ongoing. These results indicate early signal, not statistically proven performance.</p>
+
+    </div>
+
+    <!-- 5. IN ACTION -->
+    <div class="cs-section">
+      <span class="cs-section-label">In action: two real leads</span>
+      <h2 class="cs-section-title">Real emails. Real replies.</h2>
+
+      <div class="lead-badge"><span class="lead-num">01</span>JP Cleaningservice</div>
+      <div class="ss-2col" style="margin-bottom:28px;">
+        <div class="ss-frame">
+          <img src="jp-email-sent.png" alt="Cold email sent to JP Cleaningservice">
+          <div class="ss-caption">LeadFlow researched JP Cleaningservice's specialisation in facade cleaning and certified glasswork, then drafted this email. Specific, short, no pitch.</div>
+        </div>
+        <div class="ss-frame">
+          <img src="jp-email-reply.png" alt="Reply from JP Cleaningservice">
+          <div class="ss-caption">They replied within hours, sharing their story and inviting a personal conversation. The system hadn't pitched anything. Just asked a genuine question.</div>
+        </div>
+      </div>
+
+      <div class="lead-badge"><span class="lead-num">02</span>Lotos Clean</div>
+      <div class="ss-3col">
+        <div class="ss-frame">
+          <img src="lotos-sent.png" alt="Cold email sent to Lotos Clean">
+          <div class="ss-caption">LeadFlow spotted Lotos Clean's niche in hotel cleaning in Amsterdam — unusual for a cleaning company. That became the entire angle of the email.</div>
+        </div>
+        <div class="ss-frame">
+          <img src="lotos-reply1.png" alt="Lotos Clean reply thread">
+          <div class="ss-caption">They asked what the interest was. The follow-up explained the context. No hard sell, just a conversation about their growth.</div>
+        </div>
+        <div class="ss-frame">
+          <img src="lotos-reply2.png" alt="Lotos Clean expresses interest">
+          <div class="ss-caption">Their final reply: "I'm always looking for new clients. If you can offer something interesting that works, I'm willing to explore." Qualified lead. Fully automated.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. HUMAN IN THE LOOP -->
+    <div class="cs-section">
+      <span class="cs-section-label">Human in the loop</span>
+      <h2 class="cs-section-title">Automation scales. Humans judge.</h2>
+      <div class="cs-callout">
+        <span class="cs-callout-text">Automation handles scale. Humans handle judgment.</span>
+      </div>
+      <div class="cs-section-body" style="margin-bottom:16px;">
+        <p>Every email goes through a Telegram approval gate before it's sent. The operator sees the draft, can approve it as-is, edit the subject line, rewrite the body, or reject it entirely. Nothing leaves without a human sign-off.</p>
+      </div>
+      <div class="ss-2col">
+        <div class="ss-frame">
+          <img src="telegram-bot-chat.png" alt="Telegram bot approval flow">
+          <div class="ss-caption">The bot queues drafts for review. The operator can approve, edit subject line, edit message body, or reject. All from inside Telegram.</div>
+        </div>
+        <div class="ss-frame">
+          <img src="telegram-bot-info.png" alt="LeadFlow NL Telegram bot profile">
+          <div class="ss-caption">@leadflownl_bot, the dedicated approval bot. Every outreach passes through here before it reaches a real inbox.</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- SYSTEM ARCHITECTURE -->
+    <div class="cs-section">
+      <span class="cs-section-label">System Architecture</span>
+      <h2 class="cs-section-title">How lead discovery, research, AI generation, approval, and delivery work together.</h2>
+
+      <div class="arch-diagram">
+
+        <!-- ROW 1: Sources -->
+        <div class="arch-row">
+          <div class="arch-sources">
+            <div class="arch-source-box">
+              <span class="arch-source-label">Google Maps</span>
+            </div>
+            <div class="arch-source-box">
+              <span class="arch-source-label">GoudenGids</span>
+            </div>
+            <div class="arch-source-box">
+              <span class="arch-source-label">Bedrijvengids</span>
+            </div>
+          </div>
+          <div class="arch-sources-label">Dutch Business Directories</div>
+        </div>
+
+        <div class="arch-arrow-down">↓</div>
+
+        <!-- Lead Discovery -->
+        <div class="arch-node arch-node-primary">
+          <div class="arch-node-title">Lead Discovery Engine</div>
+          <div class="arch-node-tag">Python · Scraper</div>
+        </div>
+
+        <div class="arch-arrow-down">↓</div>
+
+        <!-- Database -->
+        <div class="arch-node arch-node-db">
+          <div class="arch-node-title">PostgreSQL Lead Database</div>
+          <div class="arch-node-tag">Deduplication · City Tracking</div>
+        </div>
+
+        <div class="arch-arrow-down">↓</div>
+
+        <!-- Qualification -->
+        <div class="arch-node arch-node-primary">
+          <div class="arch-node-title">Qualification Engine</div>
+          <div class="arch-node-tag">Hot (80+) · Warm (40+) · Discard</div>
+        </div>
+
+        <div class="arch-arrow-down">↓</div>
+
+        <!-- Research Pipeline -->
+        <div class="arch-research-block">
+          <div class="arch-research-title">Research Pipeline <span class="arch-research-parallel">6 parallel tasks</span></div>
+          <div class="arch-research-grid">
+            <div class="arch-research-item">Website Analysis</div>
+            <div class="arch-research-item">Reviews</div>
+            <div class="arch-research-item">Social Profiles</div>
+            <div class="arch-research-item">Job Posts</div>
+            <div class="arch-research-item">News Mentions</div>
+            <div class="arch-research-item arch-research-item-accent">Prospeo Enrichment</div>
+          </div>
+        </div>
+
+        <div class="arch-arrow-down">↓</div>
+
+        <!-- AI Layer -->
+        <div class="arch-node arch-node-ai">
+          <div class="arch-node-title">Claude</div>
+          <div class="arch-node-tag">Draft Generation</div>
+        </div>
+        <div class="arch-arrow-down">↓</div>
+        <div class="arch-node arch-node-ai">
+          <div class="arch-node-title">GPT-4o-mini</div>
+          <div class="arch-node-tag">Quality Review</div>
+        </div>
+
+        <div class="arch-arrow-down">↓</div>
+
+        <!-- Telegram -->
+        <div class="arch-node arch-node-approval">
+          <div class="arch-node-title">Telegram Approval Bot</div>
+          <div class="arch-node-tag">Human sign-off required before send</div>
+        </div>
+
+        <div class="arch-arrow-down">↓</div>
+
+        <!-- Email Delivery -->
+        <div class="arch-node arch-node-primary">
+          <div class="arch-node-title">Email Delivery Layer</div>
+          <div class="arch-node-tag">Gmail + Outlook Rotation · Daily Caps</div>
+        </div>
+
+        <div class="arch-arrow-down">↓</div>
+
+        <!-- Bottom row -->
+        <div class="arch-bottom-row">
+          <div class="arch-node arch-node-sm">
+            <div class="arch-node-title">Reply Tracking</div>
+          </div>
+          <div class="arch-bottom-arrow">→</div>
+          <div class="arch-node arch-node-sm">
+            <div class="arch-node-title">Daily Reporting</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 7. HOW IT WORKS -->
+    <div class="cs-section">
+      <span class="cs-section-label">How it works</span>
+      <h2 class="cs-section-title">Six stages, fully automated.</h2>
+      <div class="arch-steps">
+        <div class="arch-step">
+          <div class="arch-step-num">01</div>
+          <div class="arch-step-content">
+            <div class="arch-step-title">Discovery</div>
+            <div class="arch-step-desc">Scrapes GoudenGids, Bedrijvengids, and Google Maps across all 342 Dutch municipalities in population order. Captures name, address, phone, website, and email. Deduplicates automatically and tracks which cities are exhausted.</div>
+            <div class="arch-step-tags"><span class="arch-mini-tag">Python</span><span class="arch-mini-tag">PostgreSQL</span><span class="arch-mini-tag">Google Maps</span><span class="arch-mini-tag">GoudenGids</span><span class="arch-mini-tag">Bedrijvengids</span></div>
+          </div>
+        </div>
+        <div class="arch-step">
+          <div class="arch-step-num">02</div>
+          <div class="arch-step-content">
+            <div class="arch-step-title">Qualification</div>
+            <div class="arch-step-desc">Each company is scored on years in business, employee count, and specialisation. Hot (80+) and warm (40+) move forward. Everything below is filtered out. The pipeline only works on companies worth contacting.</div>
+            <div class="arch-step-tags"><span class="arch-mini-tag">Python</span><span class="arch-mini-tag">score_company.py</span></div>
+          </div>
+        </div>
+        <div class="arch-step">
+          <div class="arch-step-num">03</div>
+          <div class="arch-step-content">
+            <div class="arch-step-title">Research</div>
+            <div class="arch-step-desc">Six parallel tasks run against each qualified company: full website analysis, Google review scraping, social media presence, job postings, news mentions, and contact enrichment via Prospeo to find a founder's personal email rather than a generic inbox.</div>
+            <div class="arch-step-tags"><span class="arch-mini-tag">Python</span><span class="arch-mini-tag">Prospeo API</span></div>
+          </div>
+        </div>
+        <div class="arch-step">
+          <div class="arch-step-num">04</div>
+          <div class="arch-step-content">
+            <div class="arch-step-title">Drafting</div>
+            <div class="arch-step-desc">Claude writes the personalised Dutch cold email from the research profile. GPT-4o-mini then acts as an independent editor, catching generic phrasing, tone drift, and anything that sounds like it was written by a machine. Two models because one model cannot honestly judge its own output.</div>
+            <div class="arch-step-tags"><span class="arch-mini-tag">Claude API</span><span class="arch-mini-tag">GPT-4o-mini</span></div>
+          </div>
+        </div>
+        <div class="arch-step">
+          <div class="arch-step-num">05</div>
+          <div class="arch-step-content">
+            <div class="arch-step-title">Approval</div>
+            <div class="arch-step-desc">Draft surfaces in Telegram. Operator approves, edits, or rejects. Nothing sends without sign-off.</div>
+            <div class="arch-step-tags"><span class="arch-mini-tag">Node.js</span><span class="arch-mini-tag">Telegram Bot API</span></div>
+          </div>
+        </div>
+        <div class="arch-step">
+          <div class="arch-step-num">06</div>
+          <div class="arch-step-content">
+            <div class="arch-step-title">Sending & Follow-up</div>
+            <div class="arch-step-desc">Emails rotate across Gmail and Outlook accounts with enforced daily caps (5 → 15 → 30/day per phase). Non-replies trigger automated follow-up sequences. A master cron scheduler runs everything: scraping at 7AM, reporting at 6PM. Fully unattended on Railway.</div>
+            <div class="arch-step-tags"><span class="arch-mini-tag">Node.js</span><span class="arch-mini-tag">Gmail API</span><span class="arch-mini-tag">Railway</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. ENGINEERING CHALLENGES -->
+    <div class="cs-section">
+      <span class="cs-section-label">Engineering challenges</span>
+      <h2 class="cs-section-title">What was actually hard to build.</h2>
+      <div class="challenge-list">
+        <div class="challenge">
+          <div class="challenge-num">01</div>
+          <div class="challenge-body">
+            <div class="challenge-title">Multi-source scraping without duplicates</div>
+            <div class="challenge-desc">Synchronising company data from three sources (Google Maps, GoudenGids, and Bedrijvengids) required building a deduplication layer that could match companies with slightly different names, addresses, or phone numbers across sources without losing legitimate entries or creating duplicates in the database.</div>
+          </div>
+        </div>
+        <div class="challenge">
+          <div class="challenge-num">02</div>
+          <div class="challenge-body">
+            <div class="challenge-title">Email deliverability under rotation</div>
+            <div class="challenge-desc">Managing Gmail and Outlook account rotation while respecting per-account daily send limits, avoiding sender reputation damage, and handling OAuth token refresh across multiple accounts required careful orchestration, especially when Railway's outbound SMTP was blocked and OAuth2 had to replace it entirely.</div>
+          </div>
+        </div>
+        <div class="challenge">
+          <div class="challenge-num">03</div>
+          <div class="challenge-body">
+            <div class="challenge-title">AI quality control at the output level</div>
+            <div class="challenge-desc">Using separate generation and review models (Claude to write, GPT-4o-mini to edit) reduced generic outputs and helped maintain consistent Dutch tone. A single model reviewing its own output consistently missed tone drift and marketing language it had introduced. The two-model approach caught what one model alone would not.</div>
+          </div>
+        </div>
+        <div class="challenge">
+          <div class="challenge-num">04</div>
+          <div class="challenge-body">
+            <div class="challenge-title">Fault tolerance across an unattended pipeline</div>
+            <div class="challenge-desc">Handling API timeouts, exhausted search regions, Prospeo returning no results, and incomplete company data, all without the pipeline silently continuing or crashing. Every failure mode required a defined degradation path: skip and log, alert and pause, or retry with backoff. A system running unattended at 3AM needs explicit failure behaviour at every stage.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. KEY DECISIONS -->
+    <div class="cs-section">
+      <span class="cs-section-label">Key decisions</span>
+      <h2 class="cs-section-title">The choices that define the product.</h2>
+      <div class="challenge-list">
+        <div class="challenge">
+          <div class="challenge-num">01</div>
+          <div class="challenge-body">
+            <div class="challenge-title">Honesty over volume</div>
+            <div class="challenge-desc">The system was built with one hard constraint: never send a fake compliment, a made-up statistic, or a generic email dressed up as personal. One dishonest email doesn't just get ignored. It poisons every email that follows. Every research claim is verified before it becomes a sentence in an outgoing message.</div>
+          </div>
+        </div>
+        <div class="challenge">
+          <div class="challenge-num">02</div>
+          <div class="challenge-body">
+            <div class="challenge-title">Two models, not one</div>
+            <div class="challenge-desc">Claude writes. GPT-4o-mini edits. The reason: a model cannot honestly evaluate its own output. It has too much attachment to what it generated. A second model with no context on the original draft will catch what the first one misses: generic phrasing, marketing drift, unnatural Dutch tone. This is the core of why the emails read like a human wrote them.</div>
+          </div>
+        </div>
+        <div class="challenge">
+          <div class="challenge-num">03</div>
+          <div class="challenge-body">
+            <div class="challenge-title">Loud failures only</div>
+            <div class="challenge-desc">A system running unattended at 3AM with no one watching has two acceptable states: working correctly, or alerting loudly. Scraping fails, APIs time out, cities exhaust, Prospeo finds nothing. Every failure mode was designed to degrade gracefully or surface immediately. Silent failures are the most dangerous kind.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. BUILT WITH -->
+    <div class="cs-section">
+      <span class="cs-section-label">Built with</span>
+      <h2 class="cs-section-title">The stack behind it.</h2>
+      <div class="stack-categories">
+        <div class="stack-cat">
+          <div class="stack-cat-label">AI Models</div>
+          <div class="stack-grid">
+            <span class="stack-chip stack-chip-ai">Claude API</span>
+            <span class="stack-chip stack-chip-ai">GPT-4o-mini</span>
+          </div>
+        </div>
+        <div class="stack-cat">
+          <div class="stack-cat-label">Infrastructure</div>
+          <div class="stack-grid">
+            <span class="stack-chip">Node.js</span>
+            <span class="stack-chip">Python</span>
+            <span class="stack-chip">PostgreSQL</span>
+            <span class="stack-chip">Railway</span>
+          </div>
+        </div>
+        <div class="stack-cat">
+          <div class="stack-cat-label">Integrations</div>
+          <div class="stack-grid">
+            <span class="stack-chip">Gmail API (OAuth2)</span>
+            <span class="stack-chip">Telegram Bot API</span>
+            <span class="stack-chip">Prospeo API</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOSING -->
+    <div class="cs-section">
+      <span class="cs-section-label">What this tells you</span>
+      <h2 class="cs-section-title">What I bring to a team.</h2>
+      <div class="cs-closing">
+        <p>LeadFlow isn't just a technical project. It's proof that I can identify a real business problem, design a solution from scratch, build and deploy it in production, and iterate until it works. I built this in 5 days, working alone. The system automates lead discovery, research, drafting, approval workflows, and follow-up scheduling while providing monitoring and failure alerts.</p>
+        <p>If you're looking for someone who ships, thinks in systems, and doesn't stop at a working prototype. That's what I do.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cs-footer">
+      <a href="index.html" class="btn-back">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M10.5 6.5h-8M6 3L2.5 6.5 6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        All projects
+      </a>
+      <a href="mailto:festusigba2002@gmail.com" class="btn-cta">
+        Let's build something
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+
+<!-- LIGHTBOX -->
+<style>
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 2rem;
+}
+.lightbox-overlay.active {
+  display: flex;
+}
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  cursor: default;
+}
+.lightbox-close {
+  position: fixed;
+  top: 1.5rem; right: 1.5rem;
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+  z-index: 10000;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.2); }
+.ss-frame { position: relative; }
+.ss-frame img { cursor: zoom-in; }
+.ss-frame::after {
+  content: '🔍 Click to expand';
+  position: absolute;
+  top: 8px; right: 8px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  font-family: 'Inter', sans-serif;
+}
+.ss-frame:hover::after { opacity: 1; }
+</style>
+
+<div class="lightbox-overlay" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose">✕</div>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+(function() {
+  const overlay = document.getElementById('lightbox');
+  const img = document.getElementById('lightboxImg');
+  const closeBtn = document.getElementById('lightboxClose');
+
+  // Make all ss-frame images clickable
+  document.querySelectorAll('.ss-frame img').forEach(function(el) {
+    el.addEventListener('click', function() {
+      img.src = el.src;
+      img.alt = el.alt;
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    img.src = '';
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+</script>
+</body>
+</html>
