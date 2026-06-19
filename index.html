@@ -56,7 +56,8 @@
   --radius-xl: 20px;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { overflow-x: hidden; }
 
 body {
   background: var(--white);
@@ -486,8 +487,7 @@ footer {
   overflow: visible;
   filter: drop-shadow(0 3px 8px rgba(200,40,40,0.2));
 }
-@keyframes robot-walk {
-  0%        { left: 0%; }
+/* robot-walk removed */
   49.9%     { left: calc(100% - 60px); }
   50%       { left: calc(100% - 60px); }
   99.9%     { left: 0%; }
@@ -815,6 +815,7 @@ a.footer-contact-item:hover { color: rgba(255,255,255,0.8); cursor: pointer; }
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; flex-wrap: wrap;
   position: relative;
+  overflow: hidden;
 }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); letter-spacing: -0.01em; }
 .footer-status { display: flex; align-items: center; }
@@ -830,17 +831,8 @@ a.footer-contact-item:hover { color: rgba(255,255,255,0.8); cursor: pointer; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
 
 /* FOOTER ROBOT */
-.footer-robot-wrap {
-  position: absolute;
-  right: 2rem;
-  bottom: 100%;
-  width: 28px; height: 36px;
-  animation: footer-robot-walk 14s linear infinite;
-  cursor: pointer;
-  overflow: visible;
-}
-@keyframes footer-robot-walk {
-  0%        { right: 2rem;              transform: scaleX(1); }
+.footer-robot-wrap { display: none; }
+/* footer-robot-walk removed — caused horizontal overflow */
   49.9%     { right: calc(100% - 30px); transform: scaleX(1); }
   50%       { right: calc(100% - 30px); transform: scaleX(-1); }
   99.9%     { right: 2rem;              transform: scaleX(-1); }
@@ -851,8 +843,7 @@ a.footer-contact-item:hover { color: rgba(255,255,255,0.8); cursor: pointer; }
   animation: footer-robot-flip 14s linear infinite;
   filter: drop-shadow(0 2px 4px rgba(200,40,40,0.15));
 }
-@keyframes footer-robot-flip {
-  0%,49.9% { transform: scaleX(1); }
+
   50%,99.9% { transform: scaleX(-1); }
   100% { transform: scaleX(1); }
 }
@@ -890,6 +881,7 @@ a.footer-contact-item:hover { color: rgba(255,255,255,0.8); cursor: pointer; }
 }
 .footer-sig-line-wrap {
   position: relative; width: 280px; height: 28px;
+  overflow: hidden;
 }
 .footer-sig-line {
   position: absolute; top: 50%; left: 0; right: 0;
@@ -898,12 +890,17 @@ a.footer-contact-item:hover { color: rgba(255,255,255,0.8); cursor: pointer; }
 }
 .sig-robot-wrap {
   position: absolute; top: 50%; left: 0;
-  transform: translateY(-100%);
   width: 20px; height: 28px;
   animation: sig-walk 20s linear infinite;
+  will-change: transform;
 }
 @keyframes sig-walk {
-  0%        { left: 0%;                transform: translateY(-100%) scaleX(1); }
+  0%        { transform: translateY(-100%) translateX(0px) scaleX(1); }
+  49.9%     { transform: translateY(-100%) translateX(calc(280px - 20px)) scaleX(1); }
+  50%       { transform: translateY(-100%) translateX(calc(280px - 20px)) scaleX(-1); }
+  99.9%     { transform: translateY(-100%) translateX(0px) scaleX(-1); }
+  100%      { transform: translateY(-100%) translateX(0px) scaleX(1); }
+}
   49.9%     { left: calc(100% - 20px); transform: translateY(-100%) scaleX(1); }
   50%       { left: calc(100% - 20px); transform: translateY(-100%) scaleX(-1); }
   99.9%     { left: 0%;               transform: translateY(-100%) scaleX(-1); }
@@ -1236,6 +1233,85 @@ iframe { max-width: 100%; }
   .section-spacer { padding: 40px 0; }
   .container { padding: 0 0.875rem; }
   .card-stat-num { font-size: 1.6rem; }
+}
+
+
+/* ── DEPLOYMENT TABLE MOBILE ── */
+@media (max-width: 768px) {
+  .deploy-table-wrap { overflow: visible; }
+  .deploy-table { display: block; min-width: unset; }
+  .deploy-table thead { display: none; }
+  .deploy-table tbody { display: flex; flex-direction: column; gap: 12px; }
+  .deploy-table tr {
+    display: flex; flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    gap: 6px;
+  }
+  .deploy-table tr.row-featured { border-left: 3px solid var(--red); }
+  .deploy-table td { display: block; font-size: 13px; padding: 0; border: none; }
+  .deploy-table td:first-child { font-weight: 700; font-size: 14px; color: var(--black); }
+  .deploy-table td.row-desc { color: var(--gray-500); font-size: 12px; }
+  .deploy-table td:last-child { margin-top: 4px; }
+}
+
+/* ── CONTACT SECTION MOBILE ── */
+@media (max-width: 768px) {
+  .contact-strip {
+    flex-direction: column;
+    padding: 2.5rem 1.75rem;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  .contact-left { width: 100%; }
+  .contact-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .btn-white, .btn-ghost-white {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+  }
+}
+@media (max-width: 640px) {
+  .contact-strip { padding: 2rem 1.25rem; }
+}
+
+/* ── FOOTER MOBILE ── */
+@media (max-width: 640px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    padding: 2rem 1.25rem 1.5rem;
+  }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) {
+  .footer-main { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: auto; }
+  .footer-sig-line-wrap { width: 220px; }
+}
+@media (max-width: 360px) {
+  .footer-main { padding: 1.5rem 1rem 1.25rem; gap: 1.25rem; }
+  .footer-sig-line-wrap { width: 180px; }
+  .footer-bottom { padding: 0.875rem 1rem; }
+  .footer-available { font-size: 10px; }
+}
+
+/* ── ROBOT ISOLATION ── */
+.footer-signature {
+  contain: layout style;
+}
+.footer-sig-line-wrap {
+  isolation: isolate;
+}
+.sig-robot-wrap {
+  contain: strict;
+  pointer-events: none;
 }
 
 </style>
@@ -1586,7 +1662,7 @@ iframe { max-width: 100%; }
     <span class="eyebrow">Deployment</span>
     <h2 class="section-heading" style="margin-bottom:32px">What's in production.</h2>
     <div class="deploy-container">
-      <table class="deploy-table">
+      <div class="deploy-table-wrap"><table class="deploy-table" role="presentation">
         <thead>
           <tr>
             <th>Project</th>
