@@ -700,7 +700,7 @@ footer {
 
 .contact-email-show {
   font-family: "JetBrains Mono", monospace;
-  font-size: 12px; color: rgba(255,255,255,0.3);
+  font-size: 12px; color: rgba(255,255,255,0.55);
   margin-top: 10px; letter-spacing: 0.01em;
 }
 
@@ -760,10 +760,10 @@ footer {
 }
 .footer-main {
   max-width: 980px; margin: 0 auto;
-  padding: 3.5rem 2rem 2.5rem;
+  padding: 3rem 2rem 2rem;
   display: grid;
   grid-template-columns: 1.8fr 1fr 1fr 1.4fr;
-  gap: 3rem;
+  gap: 2.5rem;
 }
 .footer-logo {
   display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
@@ -880,8 +880,10 @@ a.footer-contact-item:hover { color: rgba(255,255,255,0.8); cursor: pointer; }
   font-family: "JetBrains Mono", monospace; font-weight: 500;
 }
 .footer-sig-line-wrap {
-  position: relative; width: 280px; height: 28px;
-  overflow: hidden;
+  position: relative; width: 280px;
+  height: 44px;
+  overflow: visible;
+  margin-top: 8px;
 }
 .footer-sig-line {
   position: absolute; top: 50%; left: 0; right: 0;
@@ -889,7 +891,9 @@ a.footer-contact-item:hover { color: rgba(255,255,255,0.8); cursor: pointer; }
   transform: translateY(-50%);
 }
 .sig-robot-wrap {
-  position: absolute; top: 50%; left: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 20px; height: 28px;
   animation: sig-walk 20s linear infinite;
   will-change: transform;
@@ -1206,8 +1210,24 @@ iframe { max-width: 100%; }
 /* ── 480px SMALL MOBILE ── */
 @media (max-width: 480px) {
   .footer-main { grid-template-columns: 1fr; }
-  .hero-actions { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .hero-actions .btn-primary { width: 100%; justify-content: center; }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .hero-actions .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-secondary-row {
+    display: flex;
+    gap: 10px;
+  }
+  .hero-secondary-row .btn-secondary {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+  }
   .section-heading { font-size: clamp(1.6rem, 7vw, 2.2rem); }
 }
 
@@ -1271,10 +1291,23 @@ iframe { max-width: 100%; }
     flex-direction: column;
     gap: 8px;
   }
-  .btn-white, .btn-ghost-white {
+  .btn-white {
     width: 100%;
     justify-content: center;
     padding: 13px 20px;
+  }
+  .contact-icons-row {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+  }
+  .contact-icons-row .btn-ghost-white {
+    flex: 1;
+    justify-content: center;
+    padding: 13px 10px;
+    max-width: 100px;
   }
 }
 @media (max-width: 640px) {
@@ -1354,8 +1387,10 @@ iframe { max-width: 100%; }
         View work
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="https://www.linkedin.com/in/princefestus" target="_blank" class="btn-secondary">LinkedIn</a>
-      <a href="mailto:festusigba2002@gmail.com" class="btn-secondary">Email me</a>
+      <div class="hero-secondary-row">
+        <a href="https://www.linkedin.com/in/princefestus" target="_blank" class="btn-secondary">LinkedIn</a>
+        <a href="mailto:festusigba2002@gmail.com" class="btn-secondary">Email me</a>
+      </div>
     </div>
 
     <div class="hero-proof">
