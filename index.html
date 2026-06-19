@@ -225,7 +225,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .proof-divider { width: 1px; height: 32px; background: var(--border-strong); }
 
 /* ─── ABOUT ───────────────────────────────── */
-.about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
 .eyebrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px; font-weight: 500; color: var(--gray-400);
@@ -240,6 +240,7 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .about-body {
   font-size: 15px; color: var(--gray-600);
   line-height: 1.8; letter-spacing: -0.005em;
+  max-width: 540px;
 }
 .about-body strong { color: var(--black); font-weight: 600; }
 .about-body p + p { margin-top: 16px; }
@@ -1389,7 +1390,7 @@ iframe { max-width: 100%; }
 
 /* Why I Build card */
 .why-i-build-card {
-  margin-top: 28px;
+  margin-top: 20px;
   padding: 20px 22px;
   background: var(--black);
   border-radius: var(--radius-lg);
@@ -1412,7 +1413,7 @@ iframe { max-width: 100%; }
   padding-top: 8px;
 }
 .journey-step {
-  padding: 14px 16px;
+  padding: 13px 16px;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-md);
   background: var(--white);
@@ -1424,15 +1425,16 @@ iframe { max-width: 100%; }
   background: var(--gray-50);
 }
 .journey-step-final {
-  border-color: rgba(217,35,28,0.2);
+  border-color: rgba(217,35,28,0.3);
   background: #FFF8F8;
+  box-shadow: 0 2px 12px rgba(217,35,28,0.06);
 }
 .journey-title {
   font-size: 13px; font-weight: 600;
   color: var(--black); letter-spacing: -0.02em;
   margin-bottom: 3px;
 }
-.journey-step-final .journey-title { color: var(--red); }
+.journey-step-final .journey-title { color: var(--red); font-size: 14px; }
 .journey-sub {
   font-size: 11px; color: var(--gray-400);
   font-family: "JetBrains Mono", monospace;
@@ -1447,8 +1449,8 @@ iframe { max-width: 100%; }
 
 /* ─── ABOUT IDENTITY BLOCK ───────────────── */
 .about-identity {
-  margin-bottom: 48px;
-  padding-bottom: 40px;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
   border-bottom: 1px solid var(--border);
 }
 .about-identity-copy {
@@ -1544,7 +1546,7 @@ iframe { max-width: 100%; }
   </div>
 </div>
 
-<div class="section-spacer" id="about">
+<div class="section-spacer" id="about" style="overflow-x: hidden;">
   <div class="container">
 
     <!-- SECTION 1: Who I am today -->
@@ -1567,7 +1569,7 @@ iframe { max-width: 100%; }
         <!-- SECTION 3: Why I Build Systems -->
         <div class="why-i-build-card">
           <div class="why-i-build-label">Why I Build Systems</div>
-          <p class="why-i-build-text">I spent five years working in sales and marketing before moving into engineering. That experience taught me how businesses operate and exposed me to repetitive problems that could be solved with better systems. Most of the products in this portfolio started as attempts to solve challenges I either experienced firsthand or observed closely.</p>
+          <p class="why-i-build-text">I spent five years working in sales and marketing before moving into engineering. That experience taught me how businesses operate and exposed me to repetitive problems that could be solved with better systems. Most of the products in this portfolio began as attempts to solve problems I encountered firsthand or repeatedly observed. Building systems became my way of turning those frustrations into practical solutions.</p>
         </div>
       </div>
 
