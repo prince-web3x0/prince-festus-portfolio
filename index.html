@@ -1492,6 +1492,59 @@ iframe { max-width: 100%; }
 #contact { scroll-margin-top: 72px; }
 #principles { scroll-margin-top: 72px; }
 
+
+/* ─── HERO PHILOSOPHY BLOCK ─────────────── */
+.hero-philosophy {
+  margin-bottom: 28px;
+  padding: 16px 20px;
+  border-left: 2px solid var(--red);
+  background: var(--gray-50);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  max-width: 560px;
+}
+.hero-philosophy-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 600;
+  color: var(--red); text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 8px;
+}
+.hero-philosophy-body {
+  font-size: 14px; color: var(--gray-600);
+  line-height: 1.75; letter-spacing: -0.005em;
+}
+
+/* ─── ABOUT SIGNATURE SENTENCE ───────────── */
+.about-identity-sig {
+  margin-top: 14px;
+  font-size: 14px; color: var(--gray-500);
+  line-height: 1.8; letter-spacing: -0.005em;
+  font-style: italic;
+  max-width: 620px;
+}
+
+/* ─── WHAT DRIVES ME ─────────────────────── */
+.what-drives-me {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--white);
+}
+.what-drives-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px; font-weight: 600;
+  color: var(--gray-500); text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 10px;
+}
+.what-drives-body {
+  font-size: 14px; color: var(--gray-600);
+  line-height: 1.78; letter-spacing: -0.005em;
+}
+@media(max-width:640px){
+  .hero-philosophy { max-width: 100%; }
+  .about-identity-sig { max-width: 100%; }
+}
+
 </style>
 </head>
 <body>
@@ -1524,9 +1577,13 @@ iframe { max-width: 100%; }
 
     <p class="hero-role-descriptor">AI Engineer · Automation Builder · Product Developer</p>
     <p class="hero-sub">
-      I build production-grade AI products and automation systems that solve real business problems. From idea to deployment, from prototype to production.
+      I build production-grade AI products and automation systems that solve real business problems and create practical, scalable solutions. From idea to deployment, from prototype to production.
     </p>
 
+    <div class="hero-philosophy">
+      <div class="hero-philosophy-label">Why I Build</div>
+      <p class="hero-philosophy-body">I believe technology is most valuable when it solves meaningful problems and creates meaningful value for people and organizations. My goal is not simply to write code, but to build systems that are practical, useful, and capable of creating real-world impact.</p>
+    </div>
     <div class="hero-actions">
       <a href="#projects" class="btn-primary">
         View work
@@ -1575,7 +1632,8 @@ iframe { max-width: 100%; }
     <div class="about-identity">
       <span class="eyebrow">About</span>
       <h2 class="section-heading">AI Engineer &amp; Product Builder.</h2>
-      <p class="about-identity-copy">I build automation systems, AI products, and interactive applications that solve operational and business problems. I enjoy turning complex workflows into systems that are practical, scalable, and useful. My background in sales and marketing shapes how I identify problems, think about users, and design products.</p>
+      <p class="about-identity-copy">I build automation systems, AI products, and interactive applications that solve operational and business problems. I enjoy turning complex workflows into systems that are practical, scalable, and useful. My background in sales and marketing shapes how I identify problems, think about users, and design products. I start with people and problems first, then build technology around real needs rather than technology for its own sake.</p>
+      <p class="about-identity-sig">My background in sales and marketing taught me to understand customers, execution, and operations first. Today, I build technology with the same principle: start with real problems, then design systems that solve them.</p>
     </div>
 
     <!-- SECTION 2: Journey + Story -->
@@ -1591,7 +1649,13 @@ iframe { max-width: 100%; }
         <!-- SECTION 3: Why I Build Systems -->
         <div class="why-i-build-card">
           <div class="why-i-build-label">Why I Build Systems</div>
-          <p class="why-i-build-text">I spent five years working in sales and marketing before moving into engineering. That experience taught me how businesses operate and exposed me to repetitive problems that could be solved with better systems. Most of the products in this portfolio began as attempts to solve problems I encountered firsthand or repeatedly observed. Building systems became my way of turning those frustrations into practical solutions.</p>
+          <p class="why-i-build-text">I spent five years working in sales and marketing before moving into engineering. That experience taught me how businesses operate and exposed me to repetitive problems that could be solved with better systems. Most of the products in this portfolio began as attempts to solve problems I encountered firsthand or repeatedly observed. I'm particularly interested in how technology and automation can remove friction, improve access, and help people and businesses operate more effectively.</p>
+        </div>
+
+        <!-- WHAT DRIVES ME -->
+        <div class="what-drives-me">
+          <div class="what-drives-label">What Drives Me</div>
+          <p class="what-drives-body">I'm interested in the intersection of technology, business, and human behavior. I enjoy identifying inefficiencies, understanding why systems fail, and building products that make complex work simpler. Long term, I want to create technology that scales beyond individual users and produces measurable impact.</p>
         </div>
       </div>
 
