@@ -1052,6 +1052,27 @@ a.footer-contact-item:hover { color: rgba(255,255,255,0.8); cursor: pointer; }
   z-index: 2;
 }
 
+/* ─── GRANTRADAR-AI CARD ─────────────────── */
+@keyframes card-glow-purple {
+  0%,100% { box-shadow: 0 0 4px 1px rgba(124,58,237,0.07); border-color: rgba(124,58,237,0.14); }
+  50%      { box-shadow: 0 0 10px 2px rgba(56,189,248,0.16); border-color: rgba(124,58,237,0.3); }
+}
+.project-card.glow-purple {
+  animation: card-glow-purple 3s ease-in-out infinite;
+  border-color: rgba(124,58,237,0.14);
+  position: relative;
+}
+.project-card.glow-purple::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #7C3AED, #38BDF8, #7C3AED, #38BDF8);
+  background-size: 300% 100%;
+  animation: top-line-shift 4s linear infinite;
+  z-index: 2;
+}
+
 
 
 
@@ -1859,6 +1880,46 @@ iframe { max-width: 100%; }
       </div>
     </div>
 
+    <!-- GRANTRADAR-AI CARD -->
+    <div class="project-card glow-purple">
+      <div class="card-inner">
+        <div class="card-visual" style="background:#0A0A0F;">
+          <img src="grantradar-icon.png" alt="GrantRadar-AI" style="width:110px;height:110px;object-fit:contain;border-radius:0;">
+        </div>
+        <div class="card-content" style="background:#FAFAFA;">
+          <div>
+            <div class="card-header">
+              <div>
+                <div class="card-meta">Multi-Agent AI · Scholarship Search</div>
+                <div class="card-title">GrantRadar-AI</div>
+              </div>
+              <span class="status-pill status-live">Live · Personal Tool</span>
+            </div>
+          </div>
+          <div class="card-stat">
+            <span class="card-stat-num">7</span>
+            <span class="card-stat-label" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--gray-400);">layer pipeline · 3 AI models</span>
+          </div>
+          <p class="card-desc">A scholarship search engine that matches European master's programs to what you've actually built, not your GPA. Three AI models handle search, extraction, and ranking; deterministic code owns every eligibility decision, so results stay verifiable, not hallucinated.</p>
+          <div class="card-stack">
+            <span class="stack-tag">Claude Sonnet 4.6</span>
+            <span class="stack-tag">Claude Haiku 4.5</span>
+            <span class="stack-tag">GPT-4o</span>
+            <span class="stack-tag">Node.js</span>
+            <span class="stack-tag">Express</span>
+            <span class="stack-tag">Railway</span>
+          </div>
+          <div class="card-footer">
+            <span class="card-date">Jun 20–22, 2026</span>
+            <a href="grantradar.html" class="card-cta">
+              Case study
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 6.5h8M7 3L10.5 6.5 7 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -2065,6 +2126,7 @@ iframe { max-width: 100%; }
         <a href="schoonmaak.html" class="footer-link">SchoonMaak Pro</a>
         <a href="cravelock.html" class="footer-link">Cravelock AI</a>
         <a href="blindspot.html" class="footer-link">BLINDSPOT</a>
+        <a href="grantradar.html" class="footer-link">GrantRadar-AI</a>
       </div>
     </div>
     <div class="footer-col">
