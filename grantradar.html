@@ -433,6 +433,41 @@ iframe { max-width: 100%; }
 
 .ss-frame img { max-width: 100%; height: auto; display: block; cursor: zoom-in; }
 
+/* ─── GRANTRADAR SCREENSHOT WALKTHROUGH ──── */
+.gr-live-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: 999px;
+  background: #F5F3FF; border: 1px solid rgba(124,58,237,0.25);
+  font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700;
+  color: var(--red); letter-spacing: 0.06em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.gr-live-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #10B981; flex-shrink: 0; }
+.gr-walkthrough { display: flex; flex-direction: column; gap: 36px; }
+.gr-shot-block { display: flex; flex-direction: column; gap: 14px; }
+.gr-shot-header { display: flex; align-items: baseline; gap: 10px; }
+.gr-shot-num {
+  font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700;
+  color: var(--red); flex-shrink: 0;
+}
+.gr-shot-title { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; color: var(--black); }
+.gr-shot-desc { font-size: 14.5px; line-height: 1.7; color: var(--gray-600); max-width: 66ch; }
+.gr-shot-frame {
+  border-radius: 14px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  background: #0A0A0F;
+}
+.gr-shot-frame img { width: 100%; display: block; cursor: zoom-in; }
+.gr-footnote {
+  margin-top: 4px; font-size: 13px; color: var(--gray-500); line-height: 1.7;
+  font-style: italic; border-left: 2px solid rgba(124,58,237,0.35); padding-left: 14px;
+}
+@media(max-width:640px){
+  .gr-shot-title { font-size: 0.98rem; }
+  .gr-shot-desc { font-size: 13.5px; }
+}
+
 @media(max-width:360px){
   nav { padding: 0 0.875rem; }
   .container { padding: 0 0.875rem; }
@@ -596,6 +631,58 @@ iframe { max-width: 100%; }
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- SCREENSHOT WALKTHROUGH -->
+    <div class="cs-section">
+      <span class="gr-live-badge">Live product walkthrough</span>
+      <span class="cs-section-label">Walkthrough</span>
+      <h2 class="cs-section-title">Inside GrantRadar-AI.</h2>
+      <div class="cs-section-body" style="margin-bottom:28px;">
+        <p>A walkthrough of the complete scholarship search workflow, from search initiation to AI-ranked recommendations.</p>
+      </div>
+
+      <div class="gr-walkthrough">
+
+        <div class="gr-shot-block">
+          <div class="gr-shot-header"><span class="gr-shot-num">01</span><span class="gr-shot-title">Launch the pipeline</span></div>
+          <p class="gr-shot-desc">The search begins with an applicant profile rather than a GPA threshold. GrantRadar-AI evaluates academic background, professional experience, deployed projects, target countries, and career goals before starting the seven-layer intelligence pipeline.</p>
+          <div class="gr-shot-frame"><img src="grantradar-shot-1-launch.png" alt="GrantRadar-AI landing screen: Find scholarships built for what you can do, with a Run the Pipeline button"></div>
+        </div>
+
+        <div class="gr-shot-block">
+          <div class="gr-shot-header"><span class="gr-shot-num">02</span><span class="gr-shot-title">Real-time pipeline execution</span></div>
+          <p class="gr-shot-desc">Each layer executes independently and reports its progress in real time. Claude searches official scholarship sources, extracts structured information, validates results, and passes verified data into deterministic eligibility rules before GPT-4o performs the final ranking.</p>
+          <div class="gr-shot-frame"><img src="grantradar-shot-2-pipeline.png" alt="GrantRadar-AI pipeline running screen showing live progress through search, extraction, and cross-checking steps"></div>
+        </div>
+
+        <div class="gr-shot-block">
+          <div class="gr-shot-header"><span class="gr-shot-num">03</span><span class="gr-shot-title">Verification and rule engine</span></div>
+          <p class="gr-shot-desc">Unlike traditional AI search tools, language models never decide eligibility. Every scholarship passes through deterministic validation, deduplication, confidence scoring, and rule-based filtering before reaching the ranking engine.</p>
+          <div class="gr-shot-frame"><img src="grantradar-shot-3-rules.png" alt="GrantRadar-AI pipeline completing deduplication, eligibility rules, confidence scoring, and GPT ranking steps"></div>
+        </div>
+
+        <div class="gr-shot-block">
+          <div class="gr-shot-header"><span class="gr-shot-num">04</span><span class="gr-shot-title">Ranked scholarship recommendations</span></div>
+          <p class="gr-shot-desc">Only scholarships that survive the full pipeline are presented to the user. Each opportunity receives a weighted match score based on technical background, experience, projects, eligibility requirements, and confidence level.</p>
+          <div class="gr-shot-frame"><img src="grantradar-shot-4-results.png" alt="GrantRadar-AI results screen listing ranked scholarships including Erasmus Mundus and Swedish Institute with match percentages"></div>
+        </div>
+
+        <div class="gr-shot-block">
+          <div class="gr-shot-header"><span class="gr-shot-num">05</span><span class="gr-shot-title">Personalized application guidance</span></div>
+          <p class="gr-shot-desc">Instead of simply listing scholarships, GrantRadar-AI explains why each opportunity matches the applicant. Recommendations reference actual projects, professional experience, technical strengths, and highlight areas that should be emphasized in the application.</p>
+          <div class="gr-shot-frame"><img src="grantradar-shot-5-guidance.png" alt="GrantRadar-AI scholarship detail view with personalized fit explanation referencing LeadFlow NL and SchoonMaak Pro"></div>
+        </div>
+
+        <div class="gr-shot-block">
+          <div class="gr-shot-header"><span class="gr-shot-num">06</span><span class="gr-shot-title">Transparent scoring and eligibility</span></div>
+          <p class="gr-shot-desc">Every recommendation includes penalties, confidence indicators, verification status, funding information, required documents, language requirements, and direct links to official scholarship pages. The goal is complete transparency rather than black-box recommendations.</p>
+          <div class="gr-shot-frame"><img src="grantradar-shot-6-scoring.png" alt="GrantRadar-AI scoring breakdown showing penalty deductions, confidence level, and document requirements for two scholarships"></div>
+        </div>
+
+      </div>
+
+      <p class="gr-footnote">These screenshots were captured from a live deployment running on Railway using real API calls to Claude Sonnet 4.6, Claude Haiku 4.5, and GPT-4o. They demonstrate the production workflow of the complete seven-layer pipeline, not static mockups.</p>
     </div>
 
     <!-- 4. HOW IT WORKS -->
