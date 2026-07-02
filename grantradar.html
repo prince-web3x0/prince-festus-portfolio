@@ -526,7 +526,7 @@ iframe { max-width: 100%; }
               <span class="cs-badge">Deterministic eligibility rules</span>
             </div>
           </div>
-          <p class="cs-disclaimer">Built for personal use to support my own European master's applications. Not publicly deployed — private repository, no public link.</p>
+          <p class="cs-disclaimer">Built for personal use to support my own European master's applications. Not publicly deployed. Private repository, no public link.</p>
           <div class="cs-meta-row">
             <div class="cs-meta-item"><span class="cs-meta-label">Timeline</span><span class="cs-meta-val">Jun 20–22, 2026</span></div>
             <div class="cs-meta-item"><span class="cs-meta-label">Category</span><span class="cs-meta-val">Multi-Agent AI</span></div>
@@ -558,7 +558,7 @@ iframe { max-width: 100%; }
       <span class="cs-section-label">The problem</span>
       <h2 class="cs-section-title">Every scholarship tool matches the wrong thing.</h2>
       <div class="cs-section-body">
-        <p>Existing scholarship search tools match on nationality, degree level, and GPA. They have no way to see what a person has actually built or done. Strong candidates with non-traditional academic records — founders, builders, self-taught engineers — get buried under irrelevant results or filtered out before anyone reads their story.</p>
+        <p>Existing scholarship search tools match on nationality, degree level, and GPA. They have no way to see what a person has actually built or done. Strong candidates with non-traditional academic records (founders, builders, self-taught engineers) get buried under irrelevant results or filtered out before anyone reads their story.</p>
         <p>GrantRadar-AI matches on substance instead: shipped products, years of experience, a technical track record. Grades are one input among several, not the gate.</p>
       </div>
     </div>
@@ -577,56 +577,56 @@ iframe { max-width: 100%; }
       <span class="cs-section-label">Architecture</span>
       <h2 class="cs-section-title">The seven-layer pipeline.</h2>
       <div class="cs-section-body" style="margin-bottom:20px;">
-        <p>Layers 1, 2, and 7 are AI. Layers 3 through 6 are pure deterministic code — no model involved. That split is the core design decision: language models find and read information, code decides who's eligible.</p>
+        <p>Layers 1, 2, and 7 are AI. Layers 3 through 6 are pure deterministic code, with no model involved. That split is the core design decision: language models find and read information, code decides who's eligible.</p>
       </div>
 
       <div class="intervention-flow">
         <div class="int-step">
           <div class="int-step-num">01</div>
           <div class="int-step-content">
-            <div class="int-step-title">Web search — Claude Sonnet 4.6</div>
+            <div class="int-step-title">Web search: Claude Sonnet 4.6</div>
             <div class="int-step-desc">Searches the live web across official scholarship sites, government pages, university pages, foundation sites, and scholarship portals simultaneously.</div>
           </div>
         </div>
         <div class="int-step">
           <div class="int-step-num">02</div>
           <div class="int-step-content">
-            <div class="int-step-title">Structured extraction — Claude Haiku 4.5</div>
-            <div class="int-step-desc">Reads each page and extracts deadline, funding, requirements, English-language policy, CGPA requirements, and required documents into structured data. Instructed to state only what's explicitly on the page and return null when a field isn't found — never invent a value.</div>
+            <div class="int-step-title">Structured extraction: Claude Haiku 4.5</div>
+            <div class="int-step-desc">Reads each page and extracts deadline, funding, requirements, English-language policy, CGPA requirements, and required documents into structured data. Instructed to state only what's explicitly on the page and return null when a field is not found, and never invent a value.</div>
           </div>
         </div>
         <div class="int-step int-step-key">
           <div class="int-step-num">03</div>
           <div class="int-step-content">
-            <div class="int-step-title">Cross-checking — code</div>
+            <div class="int-step-title">Cross-checking: code</div>
             <div class="int-step-desc">Compares the same scholarship as found across multiple sources and flags conflicting data before it reaches scoring.</div>
           </div>
         </div>
         <div class="int-step int-step-key">
           <div class="int-step-num">04</div>
           <div class="int-step-content">
-            <div class="int-step-title">Deduplication — code</div>
+            <div class="int-step-title">Deduplication: code</div>
             <div class="int-step-desc">The same scholarship found on three sources becomes one record, with <em>sourcesFound: 3</em> attached as a signal for the confidence layer.</div>
           </div>
         </div>
         <div class="int-step int-step-key">
           <div class="int-step-num">05</div>
           <div class="int-step-content">
-            <div class="int-step-title">Eligibility rules — code</div>
+            <div class="int-step-title">Eligibility rules: code</div>
             <div class="int-step-desc">13 hard rules that auto-reject, and 6 soft rules that apply a score penalty. No AI model makes an eligibility decision at this layer.</div>
           </div>
         </div>
         <div class="int-step">
           <div class="int-step-num">06</div>
           <div class="int-step-content">
-            <div class="int-step-title">Confidence scoring — code</div>
+            <div class="int-step-title">Confidence scoring: code</div>
             <div class="int-step-desc">A mathematical confidence score based on source count, whether an official source was found, and consistency across sources.</div>
           </div>
         </div>
         <div class="int-step">
           <div class="int-step-num">07</div>
           <div class="int-step-content">
-            <div class="int-step-title">Ranking &amp; fit — GPT-4o</div>
+            <div class="int-step-title">Ranking and fit: GPT-4o</div>
             <div class="int-step-desc">Receives only clean, verified data. Scores fit across five dimensions, ranks all results, and writes a fit explanation that references the applicant's actual projects by name.</div>
           </div>
         </div>
@@ -700,10 +700,10 @@ iframe { max-width: 100%; }
         </div>
         <div class="result-tile">
           <div class="result-big">19</div>
-          <div class="result-small">Eligibility rules — 13 hard, 6 soft</div>
+          <div class="result-small">Eligibility rules, 13 hard and 6 soft</div>
         </div>
       </div>
-      <p class="result-footnote">Live and deployed on Railway. Tested end-to-end with real API calls: found 15 scholarship listings, extracted 13, passed 4 through all eligibility rules, ranked by GPT-4o. Not publicly deployed — this runs against a private repository for personal use.</p>
+      <p class="result-footnote">Live and deployed on Railway. Tested end-to-end with real API calls: found 15 scholarship listings, extracted 13, passed 4 through all eligibility rules, ranked by GPT-4o. Not publicly deployed. This runs against a private repository for personal use.</p>
     </div>
 
     <!-- ENGINEERING CHALLENGES -->
@@ -736,7 +736,7 @@ iframe { max-width: 100%; }
           <div class="challenge-num">04</div>
           <div class="challenge-body">
             <div class="challenge-title">Hard vs. soft rule architecture</div>
-            <div class="challenge-desc">Separating binary eligibility decisions — always code, never AI — from nuanced scoring penalties handled by GPT-4o was the key design decision. It's what makes the results trustworthy rather than a model's best guess.</div>
+            <div class="challenge-desc">Separating binary eligibility decisions (always code, never AI) from nuanced scoring penalties handled by GPT-4o was the key design decision. It's what makes the results trustworthy rather than a model's best guess.</div>
           </div>
         </div>
         <div class="challenge">
@@ -757,15 +757,15 @@ iframe { max-width: 100%; }
         <div>
           <div class="stack-cat-label">AI</div>
           <div class="stack-grid">
-            <span class="stack-chip stack-chip-ai">Claude Sonnet 4.6 — web search &amp; extraction</span>
-            <span class="stack-chip stack-chip-ai">Claude Haiku 4.5 — structured extraction</span>
-            <span class="stack-chip stack-chip-ai">GPT-4o — ranking &amp; scoring</span>
+            <span class="stack-chip stack-chip-ai">Claude Sonnet 4.6, web search and extraction</span>
+            <span class="stack-chip stack-chip-ai">Claude Haiku 4.5, structured extraction</span>
+            <span class="stack-chip stack-chip-ai">GPT-4o, ranking and scoring</span>
           </div>
         </div>
         <div>
           <div class="stack-cat-label">Pipeline logic</div>
           <div class="stack-grid">
-            <span class="stack-chip">Pure Node.js — layers 3–6, no AI</span>
+            <span class="stack-chip">Pure Node.js, layers 3 to 6, no AI</span>
             <span class="stack-chip">Deterministic eligibility rules</span>
             <span class="stack-chip">Custom per-layer pipeline logger</span>
           </div>
@@ -804,7 +804,7 @@ iframe { max-width: 100%; }
       <span class="cs-section-label">What this tells you</span>
       <h2 class="cs-section-title">What I bring to a team.</h2>
       <div class="cs-closing">
-        <p>GrantRadar-AI was built in three to four days because I needed it, not because I was testing a market. The design decision that matters most — code owns eligibility, AI owns search and language — is the difference between a tool that's occasionally right and one that's verifiable every time.</p>
+        <p>GrantRadar-AI was built in three to four days because I needed it, not because I was testing a market. The design decision that matters most, code owns eligibility and AI owns search and language, is the difference between a tool that's occasionally right and one that's verifiable every time.</p>
         <p>GrantRadar-AI demonstrates designing multi-agent systems where trust is engineered in, not assumed: cost-optimized, hallucination-resistant, and honest about what it doesn't know.</p>
       </div>
     </div>
