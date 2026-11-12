@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProcureMate | Prince Festus</title>
+  <meta name="description" content="Two AI agents in one Switch room that find and check Nigerian suppliers for a buyer, who makes every decision. Hackathon entry by Prince Festus.">
+  <link rel="canonical" href="https://princefestus.com/procuremate.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ProcureMate | Prince Festus">
+  <meta property="og:description" content="Two AI agents in one Switch room that find and check Nigerian suppliers for a buyer, who makes every decision.">
+  <meta property="og:url" content="https://princefestus.com/procuremate.html">
+  <meta property="og:image" content="https://princefestus.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ProcureMate | Prince Festus">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ProcureMate | Prince Festus">
+  <meta name="twitter:description" content="Two AI agents in one Switch room that find and check Nigerian suppliers for a buyer, who makes every decision.">
+  <meta name="twitter:image" content="https://princefestus.com/og-image.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#000000">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #090909;
+  --white: #ffffff;
+  --red: #2f9e92;
+  --red-text: #1e7268;
+  --gray-50: #F9FAFB; --gray-100: #F3F4F6; --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB; --gray-400: #9CA3AF; --gray-500: #6B7280; --gray-600: #4B5563;
+  --border: rgba(0,0,0,0.08); --border-strong: rgba(0,0,0,0.12);
+  --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px; --radius-xl: 20px;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--white); color: var(--black); font-family: 'Inter', system-ui, sans-serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 56px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(16px) saturate(180%); border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-size: 15px; font-weight: 600; letter-spacing: -0.025em; color: var(--black); text-decoration: none; }
+.nav-logo span { color: var(--red-text); }
+.back-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--gray-500); text-decoration: none; padding: 6px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-strong); transition: all 0.15s; font-family: 'JetBrains Mono', monospace; }
+.back-btn:hover { color: var(--black); border-color: var(--gray-300); background: var(--gray-50); }
+.nav-btn { font-size: 13px; font-weight: 500; padding: 7px 16px; background: var(--black); color: var(--white); border-radius: var(--radius-sm); text-decoration: none; transition: opacity 0.15s; border: 1px solid transparent; }
+.nav-btn:hover { opacity: 0.85; }
+
+.page { padding-top: 56px; }
+.container { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+
+/* HERO */
+.cs-hero { background: var(--black); padding: 64px 2rem 56px; border-bottom: 1px solid rgba(47,158,146,0.18); }
+.cs-hero-inner { max-width: 820px; margin: 0 auto; }
+.cs-hero-layout { display: grid; grid-template-columns: 120px 1fr; gap: 2.5rem; align-items: flex-start; }
+.cs-hero-logo-left img { width: 100px; height: 100px; border-radius: 20px; object-fit: cover; display: block; }
+.cs-meta-top { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.cs-tag { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; text-transform: uppercase; }
+.cs-tag-sep { color: rgba(255,255,255,0.15); font-size: 11px; }
+.cs-status { display: inline-flex; align-items: center; gap: 5px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: #4ADE80; }
+.cs-status::before { content:''; width:5px; height:5px; border-radius:50%; background:#4ADE80; animation: blink 2.5s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+.cs-title { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -0.05em; color: var(--white); line-height: 1.05; margin-bottom: 16px; }
+.cs-tagline { font-size: 17px; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 600px; letter-spacing: -0.01em; margin-bottom: 40px; }
+.cs-meta-row { display: grid; grid-template-columns: repeat(4, auto); gap: 0; border-top: 1px solid rgba(255,255,255,0.08); row-gap: 0; }
+.cs-meta-item { display: flex; flex-direction: column; gap: 4px; padding-right: 24px; padding-top: 20px; padding-bottom: 20px; }
+.cs-meta-item:nth-child(n+5) { border-top: 1px solid rgba(255,255,255,0.06); }
+.cs-meta-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 5px; }
+.cs-meta-val { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.85); letter-spacing: -0.01em; }
+.cs-meta-val.live { color: #4ADE80; }
+
+/* BODY */
+.cs-body { padding: 56px 0 80px; }
+.cs-section { margin-bottom: 56px; }
+.cs-section-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; display: block; }
+.cs-section-title { font-size: 1.4rem; font-weight: 800; color: var(--black); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.cs-section-body { font-size: 15px; color: var(--gray-600); line-height: 1.85; letter-spacing: -0.005em; }
+.cs-section-body strong { color: var(--black); font-weight: 600; }
+.cs-section-body p + p { margin-top: 16px; }
+
+/* INTERVENTION FLOW */
+.intervention-flow { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border-strong); border-radius: var(--radius-lg); overflow: hidden; }
+.int-step { display: grid; grid-template-columns: 48px 1fr; border-bottom: 1px solid var(--border); transition: background 0.15s; }
+.int-step:last-child { border-bottom: none; }
+.int-step:hover { background: var(--gray-50); }
+.int-step-num { display: flex; align-items: flex-start; justify-content: center; padding-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: var(--gray-300); border-right: 1px solid var(--border); }
+.int-step-content { padding: 16px 20px; }
+.int-step-title { font-size: 14px; font-weight: 600; color: var(--black); letter-spacing: -0.02em; margin-bottom: 4px; }
+.int-step-desc { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+.int-step-desc em { font-style: italic; color: var(--gray-400); }
+.int-step.int-step-key { background: #EAF7F5; border-left: 3px solid var(--red); }
+.int-step.int-step-key .int-step-title { color: var(--red-text); }
+
+/* CHALLENGES */
+.challenge-list { display: flex; flex-direction: column; }
+.challenge { display: grid; grid-template-columns: 44px 1fr; padding: 22px 0; border-bottom: 1px solid var(--border); }
+.challenge:last-child { border-bottom: none; }
+.challenge-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; color: var(--gray-300); padding-top: 2px; }
+.challenge-title { font-size: 15px; font-weight: 700; color: var(--black); letter-spacing: -0.02em; margin-bottom: 7px; padding-left: 12px; border-left: 3px solid var(--red); }
+.challenge-desc { font-size: 14px; color: var(--gray-500); line-height: 1.75; }
+
+/* RESULTS */
+.results-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
+.result-tile { padding: 20px 18px; border-radius: var(--radius-md); border: 1.5px solid var(--border); background: var(--white); }
+.result-tile.dark { background: var(--black); border-color: var(--black); }
+.result-tile.red { background: var(--red); border-color: var(--red-text); }
+.result-big { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.05em; color: var(--black); line-height: 1; margin-bottom: 6px; }
+.result-tile.dark .result-big, .result-tile.red .result-big { color: var(--white); }
+.result-small { font-size: 12px; color: var(--gray-400); line-height: 1.4; font-weight: 500; }
+.result-tile.dark .result-small { color: rgba(255,255,255,0.4); }
+.result-tile.red .result-small { color: rgba(255,255,255,0.65); }
+.result-footnote { font-size: 13px; color: var(--gray-400); font-style: italic; margin-top: 10px; }
+
+/* LOOM PLACEHOLDER */
+.loom-placeholder { border: 1px dashed var(--gray-200); border-radius: var(--radius-lg); padding: 56px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; background: var(--gray-50); }
+.loom-icon { font-size: 28px; opacity: 0.4; }
+.loom-label { font-size: 14px; font-weight: 500; color: var(--gray-500); }
+.loom-sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gray-300); }
+
+/* STACK */
+.stack-categories { display: flex; flex-direction: column; gap: 20px; }
+.stack-cat-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+.stack-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.stack-chip { font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: var(--radius-sm); background: var(--gray-50); color: var(--gray-600); border: 1px solid var(--gray-200); }
+.stack-chip-ai { background: #EAF7F5 !important; color: var(--red-text) !important; border-color: rgba(47,158,146,0.22) !important; }
+
+/* CLOSING */
+.cs-closing { background: var(--black); border-radius: var(--radius-lg); padding: 2rem 2.25rem; display: flex; flex-direction: column; gap: 14px; border: 1px solid rgba(255,255,255,0.06); }
+.cs-closing p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.85; letter-spacing: -0.005em; }
+.cs-closing p:first-child { color: rgba(255,255,255,0.85); }
+.cs-closing p:last-child { font-size: 16px; font-weight: 600; color: var(--white); letter-spacing: -0.02em; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 14px; margin-top: 4px; }
+
+/* CTA */
+.cs-footer { display: flex; gap: 10px; flex-wrap: wrap; padding-top: 40px; border-top: 1px solid var(--border); margin-top: 12px; }
+.btn-back { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; background: transparent; color: var(--gray-600); font-size: 14px; font-weight: 500; border-radius: var(--radius-sm); text-decoration: none; border: 1px solid var(--border-strong); transition: all 0.15s; }
+.btn-back:hover { border-color: var(--gray-300); color: var(--black); background: var(--gray-50); }
+.btn-cta { display: inline-flex; align-items: center; gap: 7px; padding: 11px 22px; background: var(--black); color: var(--white); font-size: 14px; font-weight: 500; border-radius: var(--radius-sm); text-decoration: none; transition: opacity 0.15s; }
+.btn-cta:hover { opacity: 0.85; }
+
+@media(max-width:640px){
+  .cs-hero-layout { grid-template-columns: 1fr; }
+  .results-row { grid-template-columns: 1fr 1fr; }
+  .cs-meta-row { grid-template-columns: 1fr 1fr; }
+}
+
+/* ─── HERO ACTIONS ───────────────────────── */
+.cs-hero-actions {
+  display: flex; align-items: center; gap: 12px;
+  flex-wrap: wrap; margin-bottom: 12px;
+}
+.cs-btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px; background: var(--white); color: var(--black);
+  font-size: 14px; font-weight: 600; border-radius: var(--radius-sm);
+  text-decoration: none; letter-spacing: -0.01em;
+  transition: opacity 0.15s; border: none;
+}
+.cs-btn-primary:hover { opacity: 0.88; }
+.cs-btn-secondary {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 18px; background: transparent; color: var(--black);
+  font-size: 13px; font-weight: 500; border-radius: var(--radius-sm);
+  text-decoration: none; border: 1px solid var(--border-strong);
+  transition: all 0.15s;
+}
+.cs-btn-secondary:hover { border-color: var(--gray-400); background: var(--gray-50); }
+.cs-hero-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.cs-badge {
+  font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 500;
+  padding: 3px 8px; border-radius: 4px;
+  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.cs-disclaimer {
+  font-size: 11px; color: rgba(255,255,255,0.25);
+  font-family: "JetBrains Mono", monospace; letter-spacing: 0.01em;
+  margin-bottom: 28px;
+}
+
+/* ─── CRAVELOCK ARCH ─────────────────────── */
+.crav-arch {
+  border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem; background: var(--gray-50);
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+}
+.crav-row { display: flex; justify-content: center; width: 100%; }
+.crav-vline { width: 1px; height: 20px; background: var(--gray-200); margin: 2px auto; }
+.crav-node {
+  background: var(--white); border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md); padding: 12px 16px; text-align: center;
+}
+.crav-node-wide { min-width: 280px; max-width: 380px; width: 100%; }
+.crav-node-title { font-size: 13px; font-weight: 600; color: var(--black); letter-spacing: -0.02em; margin-bottom: 3px; }
+.crav-node-sub { font-size: 10px; color: var(--gray-400); font-family: "JetBrains Mono", monospace; line-height: 1.4; }
+.crav-node-user { background: var(--black); border-color: var(--black); min-width: 140px; }
+.crav-node-user .crav-node-title { color: var(--white); margin-bottom: 0; }
+.crav-node-app { border-color: var(--gray-300); }
+.crav-node-engine { border-color: var(--gray-400); background: var(--gray-100); }
+.crav-node-ai { border-color: var(--red-text); background: #EAF7F5; padding: 16px 20px; }
+.crav-node-ai .crav-node-title { font-size: 18px; font-weight: 800; color: var(--red-text); letter-spacing: -0.03em; }
+.crav-ai-label { font-family: "JetBrains Mono", monospace; font-size: 9px; font-weight: 600; color: var(--red-text); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+.crav-node-side { min-width: 110px; border-color: var(--gray-200); background: var(--gray-100); }
+.crav-node-side .crav-node-title { font-size: 11px; margin-bottom: 2px; }
+.crav-node-output { min-width: 200px; max-width: 260px; border-color: var(--gray-200); }
+.crav-three-col { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center; width: 100%; max-width: 500px; }
+.crav-side-col { display: flex; align-items: center; gap: 6px; }
+.crav-side-right { justify-content: flex-end; }
+.crav-side-arrow { font-size: 13px; color: var(--gray-300); flex-shrink: 0; }
+.crav-center-col { display: flex; justify-content: center; }
+.crav-outputs { display: flex; justify-content: center; width: 100%; }
+.crav-output-col { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.crav-output-arrow { font-size: 13px; color: var(--gray-300); }
+
+@media(max-width:640px){
+  .crav-three-col { grid-template-columns: 1fr; }
+  .crav-side-col, .crav-side-right { justify-content: center; }
+  .cs-hero-actions { flex-direction: column; align-items: flex-start; }
+}
+
+/* Engine hero */
+.crav-node-engine-hero {
+  border-color: var(--red-text) !important;
+  background: #EAF7F5 !important;
+  padding: 16px 20px;
+}
+.crav-engine-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px; font-weight: 600; color: var(--red-text);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px;
+}
+.crav-engine-title {
+  font-size: 16px !important; font-weight: 800 !important;
+  color: var(--black) !important; letter-spacing: -0.03em !important;
+}
+
+/* Demo checklist for cravelock */
+.demo-checklist-label {
+  font-size: 13px; font-weight: 600; color: var(--black);
+  letter-spacing: -0.01em; margin-bottom: 10px;
+}
+.demo-checklist {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px;
+  padding: 16px 20px; background: var(--gray-50);
+  border: 1px solid var(--border); border-radius: var(--radius-md);
+  margin-bottom: 16px;
+}
+.demo-check-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--gray-600); letter-spacing: -0.005em;
+}
+.demo-check { color: #16A34A; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+@media(max-width:640px){ .demo-checklist { grid-template-columns: 1fr; } }
+
+
+
+
+
+
+
+
+@media(max-width:640px){   }
+
+ .brand-pf { font-size: 11px; } }
+/* ─── NAVBAR BRAND ───────────────────────── */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  background: #000000;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+.brand-pf {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  display: block;
+}
+.brand-accent {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #E11D1D;
+}
+.brand-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+}
+.brand-period { color: #D9231C; }
+@media(max-width:640px) {
+  .brand-logo { width: 28px; height: 28px; }
+  .brand-pf { font-size: 11px; }
+  .brand-name { font-size: 13px; }
+}
+
+/* ─── NAVBAR BRAND ───────────────────────── */
+.brand { display: inline-flex; align-items: center; gap: 10px; flex-wrap: nowrap; text-decoration: none; flex-shrink: 0; }
+.brand-logo { width: 32px; height: 32px; background: #000000; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; position: relative; flex-shrink: 0; }
+.brand-pf { font-family: "Inter", sans-serif; font-size: 13px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; line-height: 1; }
+.brand-accent { position: absolute; bottom: 5px; right: 5px; width: 4px; height: 4px; border-radius: 50%; background: #E11D1D; }
+.brand-name { font-family: "Inter", sans-serif; font-size: 15px; font-weight: 700; color: #111111; letter-spacing: -0.025em; line-height: 1; white-space: nowrap; display: inline-block; }
+.brand-period { color: #D9231C; }
+@media(max-width:640px){ .brand-logo { width: 28px; height: 28px; } .brand-pf { font-size: 11px; } .brand-name { font-size: 13px; } }
+
+.loom-embed { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-strong); background: var(--black); aspect-ratio: 16/9; margin-bottom: 20px; }
+.loom-embed iframe { width: 100%; height: 100%; border: none; display: block; }
+
+/* ══════════════════════════════════════════
+   MOBILE RESPONSIVENESS — CASE STUDY
+   ══════════════════════════════════════════ */
+
+img { max-width: 100%; height: auto; }
+iframe { max-width: 100%; }
+
+@media (max-width: 768px) {
+  .cs-hero { padding: 48px 1.5rem 40px; }
+  .cs-hero-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .cs-hero-logo-left img { width: 72px; height: 72px; }
+  .cs-meta-row { grid-template-columns: 1fr 1fr; }
+  .cs-title { font-size: clamp(2rem, 8vw, 3rem); }
+  .results-row { grid-template-columns: 1fr 1fr; }
+  .arch-ai-row { flex-direction: column; }
+  .arch-ai-arrow { transform: rotate(90deg); }
+  .arch-bottom-row { flex-direction: column; }
+  .arch-bottom-arrow { transform: rotate(90deg); }
+}
+
+@media (max-width: 640px) {
+  .container { padding: 0 1.25rem; }
+  nav { padding: 0 1.25rem; }
+  .brand-name { display: none; }
+
+  /* Hero */
+  .cs-hero { padding: 40px 1.25rem 32px; }
+  .cs-meta-row { grid-template-columns: 1fr 1fr; gap: 0; }
+  .cs-meta-item { padding-right: 12px; padding-top: 14px; padding-bottom: 14px; }
+  .cs-meta-val { font-size: 13px; }
+  .cs-tagline { font-size: 15px; }
+
+  /* Body */
+  .cs-body { padding: 40px 0 60px; }
+  .cs-section { margin-bottom: 40px; }
+  .cs-section-title { font-size: 1.2rem; }
+
+  /* Results */
+  .results-row { grid-template-columns: 1fr; gap: 10px; }
+
+  /* Screenshots */
+  .ss-2col, .ss-3col { grid-template-columns: 1fr; }
+
+  /* Architecture */
+  .arch-sources { flex-direction: column; align-items: center; }
+  .arch-node { max-width: 100%; min-width: unset; }
+  .arch-node-wide { max-width: 100%; }
+  .arch-three-col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .arch-research-grid { grid-template-columns: 1fr; }
+  .arch-research-item { border-right: none !important; }
+
+  /* Flow steps */
+  .flow-steps { overflow: hidden; }
+  .flow-step { padding: 12px 14px; }
+
+  /* Challenges */
+  .challenge { grid-template-columns: 36px 1fr; }
+
+  /* Stack */
+  .stack-grid { gap: 6px; }
+  .stack-chip { font-size: 11px; padding: 5px 10px; }
+
+  /* Closing */
+  .cs-closing { padding: 1.5rem; }
+  .cs-footer { flex-direction: column; gap: 8px; }
+  .btn-back, .btn-cta { width: 100%; justify-content: center; }
+
+  /* Demo checklist */
+  .demo-checklist { grid-template-columns: 1fr; }
+  .loom-embed, .demo-video-wrap, .bs-loom-embed, .loom-embed { 
+    border-radius: 10px; 
+  }
+}
+
+@media (max-width: 375px) {
+  .container { padding: 0 1rem; }
+  nav { padding: 0 1rem; }
+  .cs-meta-row { grid-template-columns: 1fr; }
+  .cs-hero { padding: 36px 1rem 28px; }
+}
+
+
+@media(max-width:640px){
+  .crav-arch { padding: 1.25rem 1rem; }
+  .crav-three-col { grid-template-columns: 1fr; }
+  .crav-side-col, .crav-side-right { justify-content: center; flex-direction: column; }
+  .crav-side-arrow { transform: rotate(90deg); }
+  .crav-outputs { width: 100%; }
+  .crav-output-node { max-width: 100%; }
+  .crav-node-wide { min-width: unset; }
+  .cs-hero-actions { flex-direction: column; align-items: flex-start; }
+  .cs-btn-primary { width: 100%; justify-content: center; }
+  .cs-hero-badges { flex-wrap: wrap; }
+}
+
+
+.ss-frame img { max-width: 100%; height: auto; display: block; cursor: zoom-in; }
+
+@media(max-width:360px){
+  nav { padding: 0 0.875rem; }
+  .container { padding: 0 0.875rem; }
+  .cs-hero { padding: 32px 0.875rem 24px; }
+  .cs-title { font-size: clamp(1.8rem, 10vw, 2.4rem); }
+  .cs-meta-row { grid-template-columns: 1fr; }
+  .cs-meta-item { padding-top: 10px; padding-bottom: 10px; }
+  .arch-node { padding: 10px 12px; }
+  .arch-step-num { padding-top: 14px; }
+  .results-row { grid-template-columns: 1fr; }
+  .result-big { font-size: 1.8rem; }
+}
+
+
+/* ─── PROCUREMATE ADDITIONS ──────────────── */
+.result-tile.red { background: var(--red-text); border-color: var(--red-text); }
+.cs-status.pm { color: #5FD0C0; }
+.cs-status.pm::before { background: #5FD0C0; }
+.cs-meta-val.pm { color: #5FD0C0; }
+.cs-btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 18px; background: transparent; color: rgba(255,255,255,0.85);
+  font-size: 14px; font-weight: 500; border-radius: var(--radius-sm);
+  text-decoration: none; letter-spacing: -0.01em;
+  border: 1px solid rgba(255,255,255,0.22); transition: all 0.15s;
+}
+.cs-btn-ghost:hover { border-color: #5FD0C0; color: #5FD0C0; }
+.pm-key-note { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--gray-500); margin: 0 0 12px; }
+@media(max-width:640px){
+  .cs-btn-ghost { width: 100%; justify-content: center; }
+}
+
+
+/* ─── DEMO VIDEO ─────────────────────────── */
+.pm-video-frame {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: 14px; overflow: hidden; background: #0A0A0F;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+}
+.pm-video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.pm-video-caption { margin-top: 12px; font-size: 13px; color: var(--gray-500); line-height: 1.7; }
+.pm-video-caption a { color: var(--red-text); text-decoration: underline; text-underline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">
+    <span class="brand-logo">
+      <span class="brand-pf">PF</span>
+      <span class="brand-accent"></span>
+    </span>
+    <span class="brand-name">Prince Festus<span class="brand-period">.</span></span>
+  </a>
+  <a href="index.html#projects" class="back-btn">
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M10.5 6.5h-8M6 3L2.5 6.5 6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    All projects
+  </a>
+  <a href="index.html#contact" class="nav-btn">Get in touch</a>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="cs-hero">
+    <div class="cs-hero-inner">
+      <div class="cs-hero-layout">
+        <div class="cs-hero-logo-left">
+          <img src="procuremate-logo.png" alt="ProcureMate">
+        </div>
+        <div class="cs-hero-content">
+          <div class="cs-meta-top">
+            <span class="cs-tag">Multi-Agent AI</span>
+            <span class="cs-tag-sep">·</span>
+            <span class="cs-tag">Procurement</span>
+            <span class="cs-tag-sep">·</span>
+            <span class="cs-status pm">Hackathon Entry · Working Prototype</span>
+          </div>
+          <h1 class="cs-title">ProcureMate</h1>
+          <p class="cs-tagline">Two AI agents in one Switch room that find and check Nigerian suppliers for a buyer, who makes every decision.</p>
+          <div class="cs-hero-actions">
+            <a href="https://youtu.be/E_xxfIah5gI" target="_blank" rel="noopener" class="cs-btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              Watch the demo (2:40)
+            </a>
+            <a href="https://github.com/prince-web3x0/procuremate" target="_blank" rel="noopener" class="cs-btn-ghost">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+              View on GitHub
+            </a>
+          </div>
+          <div class="cs-hero-badges" style="margin-bottom:14px;">
+            <span class="cs-badge">2 AI agents</span>
+            <span class="cs-badge">Buyer decides</span>
+            <span class="cs-badge">Open source · MIT</span>
+          </div>
+          <p class="cs-disclaimer">Submitted to the Flip the Switch hackathon on Nov 6, 2026. Runs locally and includes a demo mode with fictional data, so it can be tried without an API key. Not deployed.</p>
+          <div class="cs-meta-row">
+            <div class="cs-meta-item"><span class="cs-meta-label">Timeline</span><span class="cs-meta-val">Nov 1 to 6, 2026</span></div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Category</span><span class="cs-meta-val">Multi-Agent AI</span></div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Type</span><span class="cs-meta-val">Hackathon · Solo</span></div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Platform</span><span class="cs-meta-val">Switch + Mattermost</span></div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Deployment</span><span class="cs-meta-val">Local · Demo mode</span></div>
+            <div class="cs-meta-item"><span class="cs-meta-label">Status</span><span class="cs-meta-val pm">● Working prototype</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-body">
+  <div class="container">
+
+    <!-- 1. OVERVIEW -->
+    <div class="cs-section">
+      <span class="cs-section-label">Overview</span>
+      <h2 class="cs-section-title">What ProcureMate does.</h2>
+      <div class="cs-section-body">
+        <p>ProcureMate puts two AI agents in one Switch room to help a Nigerian buyer find and check suppliers. Scout searches and reads supplier sites. Vera re-checks the best candidates and says what she could not confirm. The buyer makes every decision, and the agents send nothing.</p>
+        <p>It is my own product idea and my solo entry to the Flip the Switch hackathon, hosted by WeMakeDevs and DevTools Academy with Switch AI as sponsor, in the Best Business Workflow track. There is no client.</p>
+      </div>
+    </div>
+
+    <!-- 2. THE PROBLEM -->
+    <div class="cs-section">
+      <span class="cs-section-label">The problem</span>
+      <h2 class="cs-section-title">Finding suppliers you can trust is slow.</h2>
+      <div class="cs-section-body">
+        <p>Small businesses and office managers in Nigeria who need to buy goods, such as office chairs, spend hours searching for suppliers and still cannot tell who to trust. Many suppliers are hard to check online, and many sell only through Instagram, Jiji or WhatsApp.</p>
+        <p>ProcureMate does not pretend to solve trust. It gathers the evidence, sorts it by strength, and is explicit about what is unknown, so the buyer can decide.</p>
+      </div>
+    </div>
+
+    <!-- 3. WHY I BUILT IT -->
+    <div class="cs-section">
+      <span class="cs-section-label">Why I built it</span>
+      <h2 class="cs-section-title">A workflow with a human at the end.</h2>
+      <div class="cs-section-body">
+        <p>The hackathon asked for a workflow where people and AI agents get work done together. A supplier check fits that well. Each agent has a clear job, and the judgement calls belong to a person: which suppliers to shortlist, whether a company register entry checks out, and whether a quote request goes out. That split is the product.</p>
+      </div>
+    </div>
+
+    <!-- ARCHITECTURE -->
+    <div class="cs-section">
+      <span class="cs-section-label">How it works</span>
+      <h2 class="cs-section-title">How a request moves through the room.</h2>
+      <div class="cs-section-body" style="margin-bottom:20px;">
+        <p>Two Claude Code agents, both running Claude Sonnet, share one Mattermost room run by Switch. They work in separate folders and cannot share files, so they hand work over with an @mention. The buyer stays in the same chat from request to quote.</p>
+      </div>
+      <p class="pm-key-note">Highlighted steps are the buyer's.</p>
+
+      <div class="intervention-flow">
+        <div class="int-step">
+          <div class="int-step-num">01</div>
+          <div class="int-step-content">
+            <div class="int-step-title">Buyer posts a request</div>
+            <div class="int-step-desc">A plain message in the room, for example "10 office chairs delivered to Lagos, ₦1.5 million, within 7 days".</div>
+          </div>
+        </div>
+        <div class="int-step">
+          <div class="int-step-num">02</div>
+          <div class="int-step-content">
+            <div class="int-step-title">Scout searches</div>
+            <div class="int-step-desc">Asks one question, writes the task down in the room, then searches with the Brave Search API.</div>
+          </div>
+        </div>
+        <div class="int-step">
+          <div class="int-step-num">03</div>
+          <div class="int-step-content">
+            <div class="int-step-title">Scout sorts and reads</div>
+            <div class="int-step-desc">Sorts results into real supplier websites and leads (directories, marketplaces, social pages, overseas shops), then reads each supplier's own pages for contacts, prices and delivery claims.</div>
+          </div>
+        </div>
+        <div class="int-step">
+          <div class="int-step-num">04</div>
+          <div class="int-step-content">
+            <div class="int-step-title">Handoff to Vera</div>
+            <div class="int-step-desc">Scout hands the best candidates to Vera with an @mention.</div>
+          </div>
+        </div>
+        <div class="int-step">
+          <div class="int-step-num">05</div>
+          <div class="int-step-content">
+            <div class="int-step-title">Vera re-checks</div>
+            <div class="int-step-desc">Compares name, address and phone across pages, and looks for a registration number on the site, an independent listing and the domain age. Groups suppliers by evidence and says what she could not confirm.</div>
+          </div>
+        </div>
+        <div class="int-step int-step-key">
+          <div class="int-step-num">06</div>
+          <div class="int-step-content">
+            <div class="int-step-title">Buyer checks the company register</div>
+            <div class="int-step-desc">The buyer checks the Nigerian company register (CAC) by hand. Vera records the result as buyer-reported.</div>
+          </div>
+        </div>
+        <div class="int-step int-step-key">
+          <div class="int-step-num">07</div>
+          <div class="int-step-content">
+            <div class="int-step-title">Buyer decides</div>
+            <div class="int-step-desc">Shortlists, excludes or picks suppliers in the same chat. Scout keeps a decisions list.</div>
+          </div>
+        </div>
+        <div class="int-step int-step-key">
+          <div class="int-step-num">08</div>
+          <div class="int-step-content">
+            <div class="int-step-title">Buyer sends the quote request</div>
+            <div class="int-step-desc">Scout drafts the quote request and a ready-to-send Gmail link. The buyer sends it. The agents send nothing.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEMO VIDEO -->
+    <div class="cs-section" id="demo">
+      <span class="cs-section-label">Demo</span>
+      <h2 class="cs-section-title">See it run.</h2>
+      <div class="pm-video-frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/E_xxfIah5gI" title="ProcureMate demo video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="pm-video-caption">A 2:40 demo of ProcureMate running in a Switch room. <a href="https://youtu.be/E_xxfIah5gI" target="_blank" rel="noopener">Open it on YouTube</a>.</p>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="cs-section">
+      <span class="cs-section-label">Results</span>
+      <h2 class="cs-section-title">What it did in testing.</h2>
+      <div class="results-row">
+        <div class="result-tile red">
+          <div class="result-big">69</div>
+          <div class="result-small">Tests pass in the public repo, with CI on Python 3.10 and 3.12</div>
+        </div>
+        <div class="result-tile dark">
+          <div class="result-big">14 to 19</div>
+          <div class="result-small">Nigerian supplier sites found in each real run</div>
+        </div>
+        <div class="result-tile">
+          <div class="result-big">~6 min</div>
+          <div class="result-small">From request to Vera's reviewed list in a Switch room, with some pages cached</div>
+        </div>
+      </div>
+      <div class="cs-section-body" style="margin-top:18px;">
+        <p>The recorded run took about 11 minutes through to the quote links, and an earlier first run took about 18. A full live run used about 11 Brave queries, roughly 5 cents by the tool's own estimate. Few suppliers listed prices and none showed a confirmed Abuja address, and the agents said so instead of guessing. Four quote request emails were sent to suppliers during testing. The buyer sent each one through the Gmail link, not the agents.</p>
+        <p>Demo mode ran from a fresh download in PowerShell, Git Bash and WSL Ubuntu with no API key, and an audit found no secrets in the git history and no network calls in demo mode.</p>
+      </div>
+      <p class="result-footnote">These are prototype results from a solo hackathon build. I make no claims about users, supplier replies, accuracy rates or time saved against manual search, because none of those were measured.</p>
+    </div>
+
+    <!-- ENGINEERING CHALLENGES -->
+    <div class="cs-section">
+      <span class="cs-section-label">Engineering challenges</span>
+      <h2 class="cs-section-title">What was hard to build.</h2>
+      <div class="challenge-list">
+        <div class="challenge">
+          <div class="challenge-num">01</div>
+          <div class="challenge-body">
+            <div class="challenge-title">Honest evidence</div>
+            <div class="challenge-desc">Agents tend to overstate. Every fact carries a source, a time and an excerpt. Missing information is marked unknown, never treated as fraud. "Based in" and "delivers to" are separate claims, a supplier's claim stays a claim, and Vera never says "verified". A classifier keeps directories, marketplaces and overseas shops out of the supplier count.</div>
+          </div>
+        </div>
+        <div class="challenge">
+          <div class="challenge-num">02</div>
+          <div class="challenge-body">
+            <div class="challenge-title">Two agents in one room</div>
+            <div class="challenge-desc">A plain message reached no agent, so Scout is the main agent and follow-ups are turned off. The agents work in separate folders and cannot share files, so Vera runs her own checks from Scout's domain list and both use one shared page cache.</div>
+          </div>
+        </div>
+        <div class="challenge">
+          <div class="challenge-num">03</div>
+          <div class="challenge-body">
+            <div class="challenge-title">A flaky connection</div>
+            <div class="challenge-desc">DNS timeouts on a phone hotspot made agents report healthy sites as unreachable. A network error is now its own state, with retries, a slower final pass, a 24-hour cache and spaced visits. Long runs save progress and can resume.</div>
+          </div>
+        </div>
+        <div class="challenge">
+          <div class="challenge-num">04</div>
+          <div class="challenge-body">
+            <div class="challenge-title">Messy real sites</div>
+            <div class="challenge-desc">Numbers like "(+234) 0907…" and "0907-878-8888" are one number, so phone numbers are normalised and deduplicated. A student desk set called "Ergonomic…" was misread as an office chair, so product type is classified separately from price.</div>
+          </div>
+        </div>
+        <div class="challenge">
+          <div class="challenge-num">05</div>
+          <div class="challenge-body">
+            <div class="challenge-title">Safe and reproducible</div>
+            <div class="challenge-desc">A shared Brave query cap, a result cache, and a demo mode with fictional data let anyone run it without a key. Tests pass with the network blocked, and nothing is sent without a clear yes.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUILT WITH -->
+    <div class="cs-section">
+      <span class="cs-section-label">Built with</span>
+      <h2 class="cs-section-title">The stack behind it.</h2>
+      <div class="stack-categories">
+        <div>
+          <div class="stack-cat-label">AI and agent platform</div>
+          <div class="stack-grid">
+            <span class="stack-chip stack-chip-ai">Claude Sonnet in Claude Code: Scout and Vera</span>
+            <span class="stack-chip stack-chip-ai">Switch Console and Switch rooms</span>
+          </div>
+        </div>
+        <div>
+          <div class="stack-cat-label">Frontend</div>
+          <div class="stack-grid">
+            <span class="stack-chip">No custom UI</span>
+            <span class="stack-chip">Mattermost chat, started by Switch Console</span>
+          </div>
+        </div>
+        <div>
+          <div class="stack-cat-label">Backend and data</div>
+          <div class="stack-grid">
+            <span class="stack-chip">Python 3, standard library only</span>
+            <span class="stack-chip">pytest</span>
+            <span class="stack-chip">Brave Search API</span>
+            <span class="stack-chip">RDAP for domain age</span>
+            <span class="stack-chip">JSON files and local cache, no database</span>
+          </div>
+        </div>
+        <div>
+          <div class="stack-cat-label">Hosting and tooling</div>
+          <div class="stack-grid">
+            <span class="stack-chip">Local, Windows 11 with Docker Desktop</span>
+            <span class="stack-chip">Gmail compose link, no email provider</span>
+            <span class="stack-chip">Git and GitHub (public, MIT)</span>
+            <span class="stack-chip">GitHub Actions CI</span>
+            <span class="stack-chip">Clipchamp and ffmpeg for the demo video</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLANNED IMPROVEMENTS -->
+    <div class="cs-section">
+      <span class="cs-section-label">What's next</span>
+      <h2 class="cs-section-title">Planned improvements.</h2>
+      <div class="cs-section-body">
+        <p>A shared server so teammates can join the room. Email sending behind explicit per-message approval, with quote replies tracked. Manual lead lists for Instagram, Jiji and WhatsApp-only sellers. District coverage beyond Lagos, Abuja and Kaduna. Evidence shared in room documents, with agent roles set in Switch. Automated company register checks, only if CAC permits it.</p>
+      </div>
+    </div>
+
+    <!-- CLOSING -->
+    <div class="cs-section">
+      <span class="cs-section-label">What this tells you</span>
+      <h2 class="cs-section-title">What I bring to a team.</h2>
+      <div class="cs-closing">
+        <p>ProcureMate was built solo in about six days, and most of the work was in the rules around the agents rather than the agents themselves. Every fact carries its source, unknowns stay unknown, and a person makes each decision.</p>
+        <p>ProcureMate demonstrates designing agent workflows that are honest about their evidence and leave the final call with a human.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cs-footer">
+      <a href="index.html#projects" class="btn-back">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M10.5 6.5h-8M6 3L2.5 6.5 6 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        All projects
+      </a>
+      <a href="mailto:festusigba2002@gmail.com" class="btn-cta">
+        Let's build something
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+  </div>
+  </div>
+</div>
+</body>
+</html>
